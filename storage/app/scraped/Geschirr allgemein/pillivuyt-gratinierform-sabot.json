@@ -1,0 +1,33 @@
+{
+    "url": "https://shop.hobel.ch/produkt/pillivuyt-gratinierform-sabot/",
+    "title": "Pillivuyt – Gratinierform Sabot",
+    "description": null,
+    "article_no": "106.78, 106.79, 106.80",
+    "price": [
+        "CHF42.50",
+        "CHF86.50"
+    ],
+    "variations": [
+        {
+            "label": "Gratinierform Sabot - Grösse",
+            "options": [
+                {
+                    "value": "klein",
+                    "label": "klein"
+                },
+                {
+                    "value": "mittel",
+                    "label": "mittel"
+                },
+                {
+                    "value": "gross",
+                    "label": "gross"
+                }
+            ]
+        }
+    ],
+    "image": "https://shop.hobel.ch/wp-content/uploads/2019/02/Pillivuyt-–-Gratinierform-Sabot-1.jpg",
+    "slug": "pillivuyt-gratinierform-sabot",
+    "scraped_at": "2025-12-01T20:42:44+00:00",
+    "category": "Geschirr allgemein"
+}

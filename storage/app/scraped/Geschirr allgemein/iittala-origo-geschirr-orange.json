@@ -1,0 +1,48 @@
+{
+    "url": "https://shop.hobel.ch/produkt/iittala-origo-geschirr-orange/",
+    "title": "Iittala – Origo – Geschirr orange",
+    "description": null,
+    "article_no": "108.75, 108.77, 108.79, 108.81, 108.83, 108.85",
+    "price": [
+        "CHF17.00",
+        "CHF38.00"
+    ],
+    "variations": [
+        {
+            "label": "Origo - Schalen und Teller orange - Grösse",
+            "options": [
+                {
+                    "value": "becher-mit-henkel-04-lt-orange",
+                    "label": "Becher mit Henkel 0,4 lt - orange"
+                },
+                {
+                    "value": "becher-ohne-henkel-025-lt-orange",
+                    "label": "Becher ohne Henkel 0,25 lt - orange"
+                },
+                {
+                    "value": "eierbecher-orange",
+                    "label": "Eierbecher - orange"
+                },
+                {
+                    "value": "snackschale-015-l-orange",
+                    "label": "Snackschale 0,15 l - orange"
+                },
+                {
+                    "value": "teller-flach-20-cm-orange",
+                    "label": "Teller flach 20 cm - orange"
+                },
+                {
+                    "value": "teller-flach-26-cm-orange",
+                    "label": "Teller flach 26 cm - orange"
+                }
+            ]
+        }
+    ],
+    "image": [
+        "https://shop.hobel.ch/wp-content/uploads/2019/03/Iittala-–-Origo-–-Geschirr-orange-1.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/03/Iittala-–-Origo-–-Geschirr-orange-2.jpg"
+    ],
+    "slug": "iittala-origo-geschirr-orange",
+    "scraped_at": "2025-12-01T20:42:42+00:00",
+    "category": "Geschirr allgemein"
+}

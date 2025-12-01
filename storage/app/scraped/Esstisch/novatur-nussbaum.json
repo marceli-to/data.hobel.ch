@@ -1,0 +1,202 @@
+{
+    "url": "https://shop.hobel.ch/produkt/novatur/",
+    "title": "Novatur – Nussbaum",
+    "description": "Die bestechend klare, raffinierte Form dieses Tisches erschliesst sich erst in der Betrachtung der Details. Die Leichtfüssigkeit und der filigrane Ausdruck lassen die durchaus solide Konstruktion von Tischblatt zu Tischbein beinahe übersehen. Mit grosser Sorgfalt entscheiden unsere Möbelschreiner wie die Holzbretter zusammengefügt werden, um ein einzigartiges Holzbild entstehen zu lassen. Es kann schlicht oder lebhaft sein. *Sie haben die Wahl – Wir verwirklichen Ihre Vorstellung.* Massivholz, geölt oder natur lackiert Lieferfrist: 4-6 Wochen, Lieferung durch Hobel",
+    "article_no": "66.5",
+    "price": [
+        "CHF2'382.00",
+        "CHF7'622.00"
+    ],
+    "variations": [
+        {
+            "label": "Novatur - Holzart",
+            "options": [
+                {
+                    "value": "ahorn",
+                    "label": "Ahorn"
+                },
+                {
+                    "value": "amerikanischer-nussbaum",
+                    "label": "Amerikanischer Nussbaum"
+                },
+                {
+                    "value": "birnbaum",
+                    "label": "Birnbaum"
+                },
+                {
+                    "value": "buche",
+                    "label": "Buche"
+                },
+                {
+                    "value": "eiche",
+                    "label": "Eiche"
+                },
+                {
+                    "value": "esche",
+                    "label": "Esche"
+                },
+                {
+                    "value": "kirsche",
+                    "label": "Kirsche"
+                },
+                {
+                    "value": "linde",
+                    "label": "Linde"
+                },
+                {
+                    "value": "nussbaum",
+                    "label": "Nussbaum"
+                },
+                {
+                    "value": "tanne",
+                    "label": "Tanne"
+                },
+                {
+                    "value": "ulme",
+                    "label": "Ulme"
+                }
+            ]
+        },
+        {
+            "label": "Novatur Breite",
+            "options": [
+                {
+                    "value": "50-cm",
+                    "label": "50 cm"
+                },
+                {
+                    "value": "60-cm",
+                    "label": "60 cm"
+                },
+                {
+                    "value": "70-cm",
+                    "label": "70 cm"
+                },
+                {
+                    "value": "80-cm",
+                    "label": "80 cm"
+                },
+                {
+                    "value": "90-cm",
+                    "label": "90 cm"
+                },
+                {
+                    "value": "100-cm",
+                    "label": "100 cm"
+                }
+            ]
+        },
+        {
+            "label": "Novatur Länge",
+            "options": [
+                {
+                    "value": "50-cm",
+                    "label": "50 cm"
+                },
+                {
+                    "value": "60-cm",
+                    "label": "60 cm"
+                },
+                {
+                    "value": "70-cm",
+                    "label": "70 cm"
+                },
+                {
+                    "value": "80-cm",
+                    "label": "80 cm"
+                },
+                {
+                    "value": "90-cm",
+                    "label": "90 cm"
+                },
+                {
+                    "value": "100-cm",
+                    "label": "100 cm"
+                },
+                {
+                    "value": "120-cm",
+                    "label": "120 cm"
+                },
+                {
+                    "value": "130-cm",
+                    "label": "130 cm"
+                },
+                {
+                    "value": "140-cm",
+                    "label": "140 cm"
+                },
+                {
+                    "value": "150-cm",
+                    "label": "150 cm"
+                },
+                {
+                    "value": "160-cm",
+                    "label": "160 cm"
+                },
+                {
+                    "value": "180-cm",
+                    "label": "180 cm"
+                },
+                {
+                    "value": "190-cm",
+                    "label": "190 cm"
+                },
+                {
+                    "value": "200-cm",
+                    "label": "200 cm"
+                },
+                {
+                    "value": "220-cm",
+                    "label": "220 cm"
+                },
+                {
+                    "value": "230-cm",
+                    "label": "230 cm"
+                },
+                {
+                    "value": "240-cm",
+                    "label": "240 cm"
+                },
+                {
+                    "value": "250-cm",
+                    "label": "250 cm"
+                },
+                {
+                    "value": "260-cm",
+                    "label": "260 cm"
+                },
+                {
+                    "value": "280-cm",
+                    "label": "280 cm"
+                },
+                {
+                    "value": "300-cm",
+                    "label": "300 cm"
+                }
+            ]
+        },
+        {
+            "label": "Novatur Oberfläche",
+            "options": [
+                {
+                    "value": "geoelt",
+                    "label": "geölt"
+                },
+                {
+                    "value": "natur-lackiert",
+                    "label": "Natur lackiert"
+                }
+            ]
+        }
+    ],
+    "image": [
+        "https://shop.hobel.ch/wp-content/uploads/2019/06/Novatur-–-Nussbaum-seite-1.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/06/Novatur-–-Nussbaum-2.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/06/Novatur-–-Nussbaum-detail-3.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/06/Novatur-–-Nussbaum-detail-4.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/06/Novatur-–-Nussbaum-2-oben-5.jpg"
+    ],
+    "slug": "novatur",
+    "scraped_at": "2025-12-01T20:42:15+00:00",
+    "category": "Esstisch"
+}

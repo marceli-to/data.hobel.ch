@@ -1,0 +1,29 @@
+{
+    "url": "https://shop.hobel.ch/produkt/stern-fichte-sageroh-gross/",
+    "title": "Stern Fichte sägeroh",
+    "description": null,
+    "article_no": "46, 47",
+    "price": [
+        "CHF30.00",
+        "CHF35.00"
+    ],
+    "variations": [
+        {
+            "label": "Stern Fichte - Grösse",
+            "options": [
+                {
+                    "value": "gross-o-73-x-5-cm",
+                    "label": "gross - Ø 73 x 5 cm"
+                },
+                {
+                    "value": "klein-o-61-x-5-cm",
+                    "label": "klein - Ø 61 x 5 cm"
+                }
+            ]
+        }
+    ],
+    "image": "https://shop.hobel.ch/wp-content/uploads/2019/01/Stern-Fichte-sägeroh-1.jpg",
+    "slug": "stern-fichte-sageroh-gross",
+    "scraped_at": "2025-12-01T20:42:38+00:00",
+    "category": "Holzartikel"
+}

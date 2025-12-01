@@ -1,0 +1,33 @@
+{
+    "url": "https://shop.hobel.ch/produkt/hocker-rund-ahorn/",
+    "title": "Novatur – Hocker rund – Ahorn",
+    "description": "massiv, geölt, siehe Register Holzarten Masse: Ø 33 × 46 cm Lieferfrist: 2-3 Tage",
+    "article_no": "54, 54.1, 54.2",
+    "price": "CHF495.00",
+    "variations": [
+        {
+            "label": "Hocker rund - Holzart",
+            "options": [
+                {
+                    "value": "kirschbaum",
+                    "label": "Kirschbaum"
+                },
+                {
+                    "value": "nussbaum",
+                    "label": "Nussbaum"
+                },
+                {
+                    "value": "ahorn",
+                    "label": "Ahorn"
+                }
+            ]
+        }
+    ],
+    "image": [
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Novatur-–-Hocker-rund-–-Ahorn-1.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Novatur-–-Hocker-rund-–-Ahorn-detail-2.jpg"
+    ],
+    "slug": "hocker-rund-ahorn",
+    "scraped_at": "2025-12-01T20:42:23+00:00",
+    "category": "Hocker"
+}

@@ -1,0 +1,41 @@
+{
+    "url": "https://shop.hobel.ch/produkt/pillivuyt-salatschuessel-klassische-form/",
+    "title": "Pillivuyt – Salatschüssel – klassische Form",
+    "description": null,
+    "article_no": "106.46, 106.47, 106.49, 106.50, 106.52",
+    "price": [
+        "CHF23.90",
+        "CHF192.50"
+    ],
+    "variations": [
+        {
+            "label": "Pillivuyt - Salatschüssel klassisch - Grösse",
+            "options": [
+                {
+                    "value": "130-mm",
+                    "label": "130 mm"
+                },
+                {
+                    "value": "165-mm",
+                    "label": "165 mm"
+                },
+                {
+                    "value": "215-mm",
+                    "label": "215 mm"
+                },
+                {
+                    "value": "245-mm",
+                    "label": "245 mm"
+                },
+                {
+                    "value": "330-mm",
+                    "label": "330 mm"
+                }
+            ]
+        }
+    ],
+    "image": "https://shop.hobel.ch/wp-content/uploads/2019/02/Pillivuyt-–-Salatschüssel-–-klassische-Form-1.jpg",
+    "slug": "pillivuyt-salatschuessel-klassische-form",
+    "scraped_at": "2025-12-01T20:42:46+00:00",
+    "category": "Geschirr allgemein"
+}

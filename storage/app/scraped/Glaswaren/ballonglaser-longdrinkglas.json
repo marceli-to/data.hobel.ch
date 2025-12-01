@@ -1,0 +1,37 @@
+{
+    "url": "https://shop.hobel.ch/produkt/alpnach-glas-ballon-glaeser-25cl/",
+    "title": "Ballongläser – Longdrinkglas",
+    "description": "Auslauf, bitte Restbestand im Laden anfragen",
+    "article_no": "1089",
+    "price": [
+        "CHF4.00",
+        "CHF6.00"
+    ],
+    "variations": [
+        {
+            "label": "Alpnach Glas - Grösse",
+            "options": [
+                {
+                    "value": "12-cl",
+                    "label": "12 cl"
+                },
+                {
+                    "value": "19-cl",
+                    "label": "19 cl"
+                },
+                {
+                    "value": "25-cl",
+                    "label": "25 cl"
+                },
+                {
+                    "value": "koelsch-glas-longdrink",
+                    "label": "Kölsch Glas Longdrink"
+                }
+            ]
+        }
+    ],
+    "image": "https://shop.hobel.ch/wp-content/uploads/2019/01/Ballongläser-–-Longdrinkglas-1.jpg",
+    "slug": "alpnach-glas-ballon-glaeser-25cl",
+    "scraped_at": "2025-12-01T20:42:49+00:00",
+    "category": "Glaswaren"
+}

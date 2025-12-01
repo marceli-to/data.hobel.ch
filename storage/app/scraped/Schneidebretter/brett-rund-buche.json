@@ -1,0 +1,34 @@
+{
+    "url": "https://shop.hobel.ch/produkt/brett-rund-buche/",
+    "title": "Brett rund – Buche",
+    "description": "Alle Schneidebretter aus unserer Werkstatt sind aus demselben hochwertigen Holz bearbeitet wie die anderen Produkte. Die fachgerechte Verarbeitung garantiert eine lange Lebensdauer in der Küche oder auf dem Esstisch. Mit einer routinierten Reinigung wird Ihnen das Schneidebrett über viele Jahre Freude bereiten. Wichtige Tipps: Niemals im Geschirrspüler reinigen Niemals tropfnass stehen oder liegen lassen Nie zum Trocknen auf die Heizung legen Nie nass in die Sonne stellen Nach dem Gebrauch mit Seife/Spülmittel reinigen und abtrocken. Unbehandelte Schneidebretter können nachträglich mit Olivenöl behandelt werden massiv, roh Masse: Ø 29 × 2 cm Lieferfrist: 2-3 Tage",
+    "article_no": "21, 21.1, 21.2, 21.3",
+    "price": "CHF59.00",
+    "variations": [
+        {
+            "label": "Brett rund - Holzart",
+            "options": [
+                {
+                    "value": "birke",
+                    "label": "Birke"
+                },
+                {
+                    "value": "buche",
+                    "label": "Buche"
+                },
+                {
+                    "value": "eiche",
+                    "label": "Eiche"
+                },
+                {
+                    "value": "kirschbaum",
+                    "label": "Kirschbaum"
+                }
+            ]
+        }
+    ],
+    "image": "https://shop.hobel.ch/wp-content/uploads/2019/01/Brett-rund-–-Buche-1.jpg",
+    "slug": "brett-rund-buche",
+    "scraped_at": "2025-12-01T20:42:28+00:00",
+    "category": "Schneidebretter"
+}

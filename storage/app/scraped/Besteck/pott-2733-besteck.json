@@ -1,0 +1,37 @@
+{
+    "url": "https://shop.hobel.ch/produkt/pott-2733-besteck/",
+    "title": "Pott 2733 – Besteck",
+    "description": null,
+    "article_no": "113.27, 113.30, 113.31, 113.34",
+    "price": [
+        "CHF54.00",
+        "CHF102.00"
+    ],
+    "variations": [
+        {
+            "label": "Pott 2733 Besteck-Auswahl",
+            "options": [
+                {
+                    "value": "kaffeeloeffel-laenge-14-5-cm",
+                    "label": "Kaffeelöffel Länge = 14.5 cm"
+                },
+                {
+                    "value": "tafelgabel-laenge-19-5-cm",
+                    "label": "Tafelgabel Länge = 19.5 cm"
+                },
+                {
+                    "value": "tafelloeffel-laenge-19-6-cm",
+                    "label": "Tafellöffel Länge = 19.6 cm"
+                },
+                {
+                    "value": "tafelmesser-laenge-22-8-cm",
+                    "label": "Tafelmesser Länge = 22.8 cm"
+                }
+            ]
+        }
+    ],
+    "image": "https://shop.hobel.ch/wp-content/uploads/2019/02/Pott-2733-–-Besteck-1.jpg",
+    "slug": "pott-2733-besteck",
+    "scraped_at": "2025-12-01T20:42:41+00:00",
+    "category": "Besteck"
+}

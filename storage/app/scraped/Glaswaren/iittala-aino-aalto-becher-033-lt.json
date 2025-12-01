@@ -1,0 +1,34 @@
+{
+    "url": "https://shop.hobel.ch/produkt/iittala-aino-aalto-becher-0-33-lt/",
+    "title": "Iittala – Aino Aalto – Becher 0.33 lt",
+    "description": null,
+    "article_no": "94.5, 94.6. 94.7, 94.8, 94.9",
+    "price": "CHF14.50",
+    "variations": [
+        {
+            "label": "Aino Aalto - Becher 0,33 lt - Farbe",
+            "options": [
+                {
+                    "value": "grau",
+                    "label": "grau"
+                },
+                {
+                    "value": "hellblau",
+                    "label": "hellblau"
+                },
+                {
+                    "value": "klar",
+                    "label": "klar"
+                },
+                {
+                    "value": "wassergruen",
+                    "label": "wassergrün"
+                }
+            ]
+        }
+    ],
+    "image": "https://shop.hobel.ch/wp-content/uploads/2019/03/Iittala-–-Aino-Aalto-–-Becher-0.33-lt-2.jpg",
+    "slug": "iittala-aino-aalto-becher-0-33-lt",
+    "scraped_at": "2025-12-01T20:42:47+00:00",
+    "category": "Glaswaren"
+}

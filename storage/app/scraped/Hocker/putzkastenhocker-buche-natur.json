@@ -1,0 +1,37 @@
+{
+    "url": "https://shop.hobel.ch/produkt/putzkastenhocker-buche-natur/",
+    "title": "Putzkastenhocker – Buche natur",
+    "description": "Buche massiv, gebeizt oder natur, Holzstruktur sichtbar, Innenfach Höhe 11 cm. Masse: 35 × 35 × 46 cm Lieferfrist: 2-3 Tage",
+    "article_no": "60, 60.1, 60.2",
+    "price": "CHF189.00",
+    "variations": [
+        {
+            "label": "Putzkastenhocker Buche - Farbe",
+            "options": [
+                {
+                    "value": "buche-natur",
+                    "label": "Buche natur"
+                },
+                {
+                    "value": "blau-gebeizt",
+                    "label": "blau gebeizt"
+                },
+                {
+                    "value": "gelb-gebeizt",
+                    "label": "gelb gebeizt"
+                }
+            ]
+        }
+    ],
+    "image": [
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Putzkastenhocker-–-Buche-natur-geschlossen-1.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Putzkastenhocker-–-Buche-natur-offen-2.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Putzkastenhocker-–-blau-gebeizt-geschlossen-1.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Putzkastenhocker-–-blau-gebeizt-offen-2.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Putzkastenhocker-–-gelb-gebeizt-geschlossen-1.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Putzkastenhocker-–-gelb-gebeizt-offen-2.jpg"
+    ],
+    "slug": "putzkastenhocker-buche-natur",
+    "scraped_at": "2025-12-01T20:42:22+00:00",
+    "category": "Hocker"
+}

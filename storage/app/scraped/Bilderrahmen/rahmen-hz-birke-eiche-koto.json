@@ -1,0 +1,57 @@
+{
+    "url": "https://shop.hobel.ch/produkt/rahmen-birke-und-eiche/",
+    "title": "Rahmen HZ – Birke, Eiche, Koto",
+    "description": null,
+    "article_no": "87.27, 87.28, 87.34, 87.35, 87.36, 87.40, 87.41, 87.42",
+    "price": [
+        "CHF63.00",
+        "CHF117.00"
+    ],
+    "variations": [
+        {
+            "label": "Rahmen HZ Eiche, Birke, Koto - Grösse",
+            "options": [
+                {
+                    "value": "birke-nature-11mm-x-28mm-kastenrahmen-groesse-297-cm-x-42-cm",
+                    "label": "Birke nature 11mm x 28mm Kastenrahmen / Grösse 29,7 cm x 42 cm"
+                },
+                {
+                    "value": "birke-nature-11mm-x-28mm-kastenrahmen-groesse-30-cm-x-40-cm",
+                    "label": "Birke nature 11mm x 28mm Kastenrahmen / Grösse 30 cm x 40 cm"
+                },
+                {
+                    "value": "eiche-nature-13mm-x-28mm-groesse-21-cm-x-29-7-cm",
+                    "label": "Eiche nature 13mm x 28mm / Grösse 21 cm x 29.7 cm"
+                },
+                {
+                    "value": "eiche-nature-13mm-x-28mm-groesse-40-cm-x-50-cm",
+                    "label": "Eiche nature 13mm x 28mm / Grösse 40 cm x 50 cm"
+                },
+                {
+                    "value": "eiche-nature-13mm-x-28mm-groesse-42c-m-x-59-4-cm",
+                    "label": "Eiche nature 13mm x 28mm / Grösse 42 cm x 59.4 cm"
+                },
+                {
+                    "value": "koto-11mm-x-20mm-schwarz-groesse-30-cm-x-40-cm",
+                    "label": "Koto 11mm x 20mm schwarz / Grösse 30 cm x 40 cm"
+                },
+                {
+                    "value": "koto-nature-11mm-x-20mm-groesse-21-cm-x-29-7-cm",
+                    "label": "Koto nature 11mm x 20mm / Grösse 21 cm x 29.7 cm"
+                },
+                {
+                    "value": "koto-schwarz-11mm-x-20mm-groesse-21-cm-x-297-cm",
+                    "label": "Koto schwarz 11mm x 20mm / Grösse 21 cm x 29,7 cm"
+                }
+            ]
+        }
+    ],
+    "image": [
+        "https://shop.hobel.ch/wp-content/uploads/2019/03/Rahmen-HZ-–-Eiche-Birke-Koto-1.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/03/Rahmen-HZ-–-Eiche-Birke-Koto-2.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/03/Rahmen-HZ-–-Eiche-Birke-Koto-3.jpg"
+    ],
+    "slug": "rahmen-birke-und-eiche",
+    "scraped_at": "2025-12-01T20:42:35+00:00",
+    "category": "Bilderrahmen"
+}

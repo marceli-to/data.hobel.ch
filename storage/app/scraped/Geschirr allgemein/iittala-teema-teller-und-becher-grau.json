@@ -1,0 +1,45 @@
+{
+    "url": "https://shop.hobel.ch/produkt/iittala-teema-teller-und-becher/",
+    "title": "Iittala – Teema – Teller und Becher grau",
+    "description": null,
+    "article_no": "108.5, 108.13, 108.21, 108.28, 108.52, 108.59",
+    "price": [
+        "CHF20.00",
+        "CHF28.00"
+    ],
+    "variations": [
+        {
+            "label": "Teema - grau - Form und Grösse",
+            "options": [
+                {
+                    "value": "henkelbecher-3-dl-grau",
+                    "label": "Henkelbecher 3 dl - grau"
+                },
+                {
+                    "value": "henkelbecher-4-dl-grau",
+                    "label": "Henkelbecher 4 dl - grau"
+                },
+                {
+                    "value": "schale-15-cm-grau",
+                    "label": "Schale 15 cm - grau"
+                },
+                {
+                    "value": "teller-flach-17-cm-grau",
+                    "label": "Teller flach 17 cm - grau"
+                },
+                {
+                    "value": "teller-flach-21-cm-grau",
+                    "label": "Teller flach 21 cm - grau"
+                },
+                {
+                    "value": "teller-flach-26-cm-grau",
+                    "label": "Teller flach 26 cm - grau"
+                }
+            ]
+        }
+    ],
+    "image": "https://shop.hobel.ch/wp-content/uploads/2019/03/Iittala-–-Teema-–-Teller-und-Becher-grau-1.jpg",
+    "slug": "iittala-teema-teller-und-becher",
+    "scraped_at": "2025-12-01T20:42:43+00:00",
+    "category": "Geschirr allgemein"
+}

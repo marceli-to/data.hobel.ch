@@ -1,0 +1,36 @@
+{
+    "url": "https://shop.hobel.ch/produkt/costa-nova-schalen-und-krug/",
+    "title": "Costa Nova – Schalen und Krug",
+    "description": null,
+    "article_no": "106.139, 106.140, 106.141",
+    "price": [
+        "CHF60.90",
+        "CHF94.50"
+    ],
+    "variations": [
+        {
+            "label": "Costa Nova - Grösse",
+            "options": [
+                {
+                    "value": "krug-costa-nova-17-lt",
+                    "label": "Krug Costa Nova - 1,7 lt"
+                },
+                {
+                    "value": "schale-blau-o-340mm",
+                    "label": "Schale blau - Ø 340mm"
+                },
+                {
+                    "value": "schale-blau-lang-l-370mm",
+                    "label": "Schale blau lang - L 370mm"
+                }
+            ]
+        }
+    ],
+    "image": [
+        "https://shop.hobel.ch/wp-content/uploads/2019/03/Costa-Nova-–-Schalen-und-Krug-1.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/03/Costa-Nova-–-Schalen-und-Krug-2.jpg"
+    ],
+    "slug": "costa-nova-schalen-und-krug",
+    "scraped_at": "2025-12-01T20:42:43+00:00",
+    "category": "Geschirr allgemein"
+}

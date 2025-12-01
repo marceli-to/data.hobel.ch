@@ -1,0 +1,37 @@
+{
+    "url": "https://shop.hobel.ch/produkt/hergiswiler-annakelche/",
+    "title": "Hergiswiler – Annakelche",
+    "description": null,
+    "article_no": "92.5, 92.6, 92.7, 92.8",
+    "price": [
+        "CHF28.00",
+        "CHF34.00"
+    ],
+    "variations": [
+        {
+            "label": "Annakelch - Art",
+            "options": [
+                {
+                    "value": "apero",
+                    "label": "Apéro"
+                },
+                {
+                    "value": "rotwein",
+                    "label": "Rotwein"
+                },
+                {
+                    "value": "wasser",
+                    "label": "Wasser"
+                },
+                {
+                    "value": "weisswein",
+                    "label": "Weisswein"
+                }
+            ]
+        }
+    ],
+    "image": "https://shop.hobel.ch/wp-content/uploads/2019/03/Hergiswiler-–-Annakelche-1.jpg",
+    "slug": "hergiswiler-annakelche",
+    "scraped_at": "2025-12-01T20:42:48+00:00",
+    "category": "Glaswaren"
+}

@@ -1,0 +1,34 @@
+{
+    "url": "https://shop.hobel.ch/produkt/kuchenhocker-glatt-orange-gebeizt/",
+    "title": "Küchenhocker – glatt – Buche natur",
+    "description": "Buche massiv, natur oder gebeizt, Holzstruktur sichtbar. Masse: 35 × 35 × 46 cm Lieferfrist: 2-3 Tage",
+    "article_no": "58, 58.1, 58.2",
+    "price": "CHF109.00",
+    "variations": [
+        {
+            "label": "Küchenhocker glatt - Farbe",
+            "options": [
+                {
+                    "value": "buche-natur",
+                    "label": "Buche natur"
+                },
+                {
+                    "value": "rot-gebeizt",
+                    "label": "rot gebeizt"
+                },
+                {
+                    "value": "schwarz-gebeizt",
+                    "label": "schwarz gebeizt"
+                }
+            ]
+        }
+    ],
+    "image": [
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Küchenhocker-–-glatt-–-Buche-natur-1.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Küchenhocker-–-glatt-–-rot-gebeizt-1.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Küchenhocker-–-glatt-–-schwarz-gebeizt-1.jpg"
+    ],
+    "slug": "kuchenhocker-glatt-orange-gebeizt",
+    "scraped_at": "2025-12-01T20:42:22+00:00",
+    "category": "Hocker"
+}

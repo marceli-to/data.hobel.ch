@@ -1,0 +1,39 @@
+{
+    "url": "https://shop.hobel.ch/produkt/fussschemel-buche-natur/",
+    "title": "Fussschemel",
+    "description": "Buche massiv, gebeizt oder natur, Holzstruktur sichtbar. Masse: 35 × 22 × 18,5 cm Lieferfrist: 2-3 Tage",
+    "article_no": "61, 61.1, 61.4, 61.5",
+    "price": "CHF69.00",
+    "variations": [
+        {
+            "label": "Fussschemel - Farbe",
+            "options": [
+                {
+                    "value": "buche-natur",
+                    "label": "Buche natur"
+                },
+                {
+                    "value": "blau-gebeizt",
+                    "label": "blau gebeizt"
+                },
+                {
+                    "value": "rot-gebeizt",
+                    "label": "rot gebeizt"
+                },
+                {
+                    "value": "orange-gebeizt",
+                    "label": "orange gebeizt"
+                }
+            ]
+        }
+    ],
+    "image": [
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Fussschemel-Buche-natur-1.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Fussschemel-Blau-gebeizt-1.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Fussschemel-Rot-gebeizt-1.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Fussschemel-Orange-gebeizt-1.jpg"
+    ],
+    "slug": "fussschemel-buche-natur",
+    "scraped_at": "2025-12-01T20:42:38+00:00",
+    "category": "Holzartikel"
+}

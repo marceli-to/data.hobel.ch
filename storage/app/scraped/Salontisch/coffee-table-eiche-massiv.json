@@ -1,0 +1,43 @@
+{
+    "url": "https://shop.hobel.ch/produkt/seleform-coffee-table-massiv-eiche/",
+    "title": "coffee table – Eiche massiv",
+    "description": "Tischblatt und Füsse massiv Masse: Höhe 45 cm / Ø 65 cm Lieferfrist: 4-6 Wochen, Abholung im Laden oder Lieferung durch Hobel",
+    "article_no": "66.13, 66.14, 66.15",
+    "price": "CHF610.00",
+    "variations": [
+        {
+            "label": "Coffee table - Holzart",
+            "options": [
+                {
+                    "value": "eiche",
+                    "label": "Eiche"
+                },
+                {
+                    "value": "kirschbaum",
+                    "label": "Kirschbaum"
+                },
+                {
+                    "value": "nussbaum",
+                    "label": "Nussbaum"
+                }
+            ]
+        },
+        {
+            "label": "Coffee table - Oberfläche",
+            "options": [
+                {
+                    "value": "geoelt",
+                    "label": "geölt"
+                },
+                {
+                    "value": "natur-lackiert",
+                    "label": "Natur lackiert"
+                }
+            ]
+        }
+    ],
+    "image": "https://shop.hobel.ch/wp-content/uploads/2019/01/coffee-table-–-Eiche-massiv-1.jpg",
+    "slug": "seleform-coffee-table-massiv-eiche",
+    "scraped_at": "2025-12-01T20:42:18+00:00",
+    "category": "Salontisch"
+}

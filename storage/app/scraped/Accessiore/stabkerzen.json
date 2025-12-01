@@ -1,0 +1,69 @@
+{
+    "url": "https://shop.hobel.ch/produkt/stabkerzen-farbig/",
+    "title": "Stabkerzen",
+    "description": "Durchmesser 2 cm × Länge 23 cm nicht tropfend Lieferfrist: innerhalb 2-3 Arbeitstagen Die Farben können zu den Abbildungen leicht abweichen. Kein Umtausch möglich.  ",
+    "article_no": "114.01 - 114.10",
+    "price": "CHF3.90",
+    "variations": [
+        {
+            "label": "Stabkerzen - farben",
+            "options": [
+                {
+                    "value": "graublau-dunkel",
+                    "label": "graublau dunkel"
+                },
+                {
+                    "value": "aubergine-dunkel",
+                    "label": "aubergine dunkel"
+                },
+                {
+                    "value": "koralle",
+                    "label": "koralle"
+                },
+                {
+                    "value": "schwarzgrau",
+                    "label": "schwarzgrau"
+                },
+                {
+                    "value": "weiss",
+                    "label": "weiss"
+                },
+                {
+                    "value": "korallrot",
+                    "label": "korallrot"
+                },
+                {
+                    "value": "schwefelgelb",
+                    "label": "schwefelgelb"
+                },
+                {
+                    "value": "lachs",
+                    "label": "lachs"
+                },
+                {
+                    "value": "eisblau-hell",
+                    "label": "eisblau hell"
+                },
+                {
+                    "value": "tuerkisblau-hell",
+                    "label": "türkisblau hell"
+                }
+            ]
+        }
+    ],
+    "image": [
+        "https://shop.hobel.ch/wp-content/uploads/2019/02/Stabkerzen-farbig-graublau-dunkel.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/02/Stabkerzen-farbig-aubergine-dunkel.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/02/Stabkerzen-farbig-koralle.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/02/Stabkerzen-farbig-schwarzgrau.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/02/Stabkerzen-farbig-weiss.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/02/Stabkerzen-farbig-korallrot.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/02/Stabkerzen-farbig-schwefelgelb.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/02/Stabkerzen-farbig-lachs.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/02/Stabkerzen-farbig-eisblau-hell.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/02/Stabkerzen-farbig-türkisblau-hell.jpg"
+    ],
+    "slug": "stabkerzen-farbig",
+    "scraped_at": "2025-12-01T20:42:36+00:00",
+    "category": "Accessiore"
+}

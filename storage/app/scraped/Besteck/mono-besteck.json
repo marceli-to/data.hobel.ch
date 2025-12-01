@@ -1,0 +1,37 @@
+{
+    "url": "https://shop.hobel.ch/produkt/mono-besteck/",
+    "title": "Mono – Besteck",
+    "description": null,
+    "article_no": "111.5, 111.6, 111.7, 111.8",
+    "price": [
+        "CHF31.00",
+        "CHF65.00"
+    ],
+    "variations": [
+        {
+            "label": "Mono Besteck-Auswahl",
+            "options": [
+                {
+                    "value": "kaffeeloeffel-laenge-15-cm",
+                    "label": "Kaffeelöffel Länge = 15 cm"
+                },
+                {
+                    "value": "tafelgabel-laenge-20-7-cm",
+                    "label": "Tafelgabel Länge = 20.7 cm"
+                },
+                {
+                    "value": "tafelloeffel-laenge-21-3-cm",
+                    "label": "Tafellöffel Länge = 21.3 cm"
+                },
+                {
+                    "value": "tafelmesser-laenge-22-3-cm",
+                    "label": "Tafelmesser Länge = 22.3 cm"
+                }
+            ]
+        }
+    ],
+    "image": "https://shop.hobel.ch/wp-content/uploads/2019/02/Mono-–-Besteck-1.jpg",
+    "slug": "mono-besteck",
+    "scraped_at": "2025-12-01T20:42:41+00:00",
+    "category": "Besteck"
+}

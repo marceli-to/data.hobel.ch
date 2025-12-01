@@ -1,0 +1,73 @@
+{
+    "url": "https://shop.hobel.ch/produkt/rahmen-lehni-hoch-und-quer/",
+    "title": "Rahmen Lehni – Hoch und Quer",
+    "description": null,
+    "article_no": "88.8, 88.9, 88.10, 88.11, 88.12, 88.13, 88.14, 88.15, 88.16, 88.17, 88.18, 88.19",
+    "price": [
+        "CHF79.00",
+        "CHF141.00"
+    ],
+    "variations": [
+        {
+            "label": "Rahmen Lehni - Format und Grösse",
+            "options": [
+                {
+                    "value": "hoch-chrom-21-cm-x-297-cm",
+                    "label": "Hoch chrom 21 cm x 29,7 cm"
+                },
+                {
+                    "value": "hoch-chrom-297-cm-x-42-cm",
+                    "label": "Hoch chrom 29,7 cm x 42 cm"
+                },
+                {
+                    "value": "hoch-chrom-30-cm-x-40-cm",
+                    "label": "Hoch chrom 30 cm x 40 cm"
+                },
+                {
+                    "value": "hoch-chrom-40-cm-x-50-cm",
+                    "label": "Hoch chrom 40 cm x 50 cm"
+                },
+                {
+                    "value": "hoch-chrom-50-cm-x-70-cm",
+                    "label": "Hoch chrom 50 cm x 70 cm"
+                },
+                {
+                    "value": "hoch-quer-chrom-42-cm-x-42-cm",
+                    "label": "Hoch/Quer chrom 42 cm x 42 cm"
+                },
+                {
+                    "value": "hoch-quer-schwarz-30-cm-x-30-cm",
+                    "label": "Hoch/Quer schwarz 30 cm x 30 cm"
+                },
+                {
+                    "value": "quer-chrom-297-cm-x-21-cm",
+                    "label": "Quer chrom 29,7 cm x 21 cm"
+                },
+                {
+                    "value": "quer-chrom-297-cm-x-42-cm",
+                    "label": "Quer chrom 29,7 cm x 42 cm"
+                },
+                {
+                    "value": "quer-chrom-30-cm-x-40-cm",
+                    "label": "Quer chrom 30 cm x 40 cm"
+                },
+                {
+                    "value": "quer-chrom-40-cm-x-50-cm",
+                    "label": "Quer chrom 40 cm x 50 cm"
+                },
+                {
+                    "value": "quer-chrom-50-cm-x-70-cm",
+                    "label": "Quer chrom 50 cm x 70 cm"
+                }
+            ]
+        }
+    ],
+    "image": [
+        "https://shop.hobel.ch/wp-content/uploads/2019/03/Rahmen-Lehni-–-Hoch-und-Quer-1.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/03/Rahmen-Lehni-–-Hoch-und-Quer-2.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/03/Rahmen-Lehni-–-Hoch-und-Quer-3.jpg"
+    ],
+    "slug": "rahmen-lehni-hoch-und-quer",
+    "scraped_at": "2025-12-01T20:42:34+00:00",
+    "category": "Bilderrahmen"
+}

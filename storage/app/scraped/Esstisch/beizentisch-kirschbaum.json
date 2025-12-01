@@ -1,0 +1,30 @@
+{
+    "url": "https://shop.hobel.ch/produkt/beizentisch-kirschbaum/",
+    "title": "Beizentisch – Kirschbaum",
+    "description": "Das ist doch wie «La vie en France» wenn man sich an diesen Tisch setzt. Die geschwungenen Füsse aus Gusseisen, die schwebend wirkende Platte aus massivem Kirschbaumholz mit der klassischen Karnies Profilkante versetzen Sie sofort in ein stilvolles Ambiente. Kirschbaum massiv, geölt oder Natur lackiert Tischblatt mit Karniesprofil Füsse aus Gusseisen, Farbe anthrazit Masse: 170 × 80 × 73 cm Lieferfrist: 4−6 Wochen, Lieferung durch Hobel",
+    "article_no": "66.8",
+    "price": "CHF2'740.00",
+    "variations": [
+        {
+            "label": "Beizentisch - Kirschbaum - Oberflächenbehandlung",
+            "options": [
+                {
+                    "value": "geoelt",
+                    "label": "geölt"
+                },
+                {
+                    "value": "natur-lackiert",
+                    "label": "Natur lackiert"
+                }
+            ]
+        }
+    ],
+    "image": [
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Beizentisch-–-Kirschbaum-seitlich-1.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/beizentisch-krischbaum.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Beizentisch-–-Kirschbaum-detail-3.jpg"
+    ],
+    "slug": "beizentisch-kirschbaum",
+    "scraped_at": "2025-12-01T20:42:16+00:00",
+    "category": "Esstisch"
+}

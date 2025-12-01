@@ -1,0 +1,40 @@
+{
+    "url": "https://shop.hobel.ch/produkt/aba-amriswil-liegestuhl/",
+    "title": "Liegestuhl – blau / weiss",
+    "description": "Buche geölt FSC zertifiziert Ohne Fussteil, mit Armlehne, Rückenteil verstellbar Lieferfrist: 2-3 Tage",
+    "article_no": "75.2, 75.3, 75.4, 75.5",
+    "price": "CHF179.00",
+    "variations": [
+        {
+            "label": "Liegestuhl – ABA Amriswil - Farbe",
+            "options": [
+                {
+                    "value": "blau-weiss",
+                    "label": "blau - weiss"
+                },
+                {
+                    "value": "gelb-weiss",
+                    "label": "gelb - weiss"
+                },
+                {
+                    "value": "gruen-weiss",
+                    "label": "grün - weiss"
+                },
+                {
+                    "value": "rot-weiss",
+                    "label": "rot - weiss"
+                }
+            ]
+        }
+    ],
+    "image": [
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Fussteile-Liegestuhl-blau-weiss-2.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Liegestuh_und_Fussteil_blauweiss.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Liegestuhl_und_Fussteil_gelbweiss.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Liegesstuhl_und_Fussteil_grünweiss.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Liegestuhl_und_Fussteil_rotweiss.jpg"
+    ],
+    "slug": "aba-amriswil-liegestuhl",
+    "scraped_at": "2025-12-01T20:42:24+00:00",
+    "category": "Liegestühle"
+}

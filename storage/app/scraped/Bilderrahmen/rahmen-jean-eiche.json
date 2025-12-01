@@ -1,0 +1,37 @@
+{
+    "url": "https://shop.hobel.ch/produkt/corbusier-jean-rahmen-eiche/",
+    "title": "Rahmen «Jean» – Eiche",
+    "description": "Rahmen Tiefe = 60 mm Rahmenprofil vorne = 5 mm Eiche massiv, Natur lackiert Sondermasse auf Anfrage Versand auf Anfrage",
+    "article_no": "85, 85.1, 85.2, 85.3",
+    "price": [
+        "CHF300.00",
+        "CHF371.00"
+    ],
+    "variations": [
+        {
+            "label": "Rahmen \"Jean\" - Grösse",
+            "options": [
+                {
+                    "value": "30-cm-x-40-cm",
+                    "label": "30 cm x 40 cm"
+                },
+                {
+                    "value": "40-cm-x-50-cm",
+                    "label": "40 cm x 50 cm"
+                },
+                {
+                    "value": "50-cm-x-70-cm",
+                    "label": "50 cm x 70 cm"
+                }
+            ]
+        }
+    ],
+    "image": [
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Rahmen-„Jean“-–-Eiche-1.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Rahmen-„Jean“-–-Eiche-2.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Rahmen-„Jean“-–-Eiche-3.jpg"
+    ],
+    "slug": "corbusier-jean-rahmen-eiche",
+    "scraped_at": "2025-12-01T20:42:36+00:00",
+    "category": "Bilderrahmen"
+}

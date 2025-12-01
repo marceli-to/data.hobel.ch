@@ -1,0 +1,33 @@
+{
+    "url": "https://shop.hobel.ch/produkt/schneidbrett-stern-europaeischer-nussbaum/",
+    "title": "Schneidbrett Stern – Ahorn",
+    "description": "Alle Schneidebretter aus unserer Werkstatt sind aus demselben hochwertigen Holz bearbeitet wie die anderen Produkte. Die fachgerechte Verarbeitung garantiert eine lange Lebensdauer in der Küche oder auf dem Esstisch. Mit einer routinierten Reinigung wird Ihnen das Schneidebrett über viele Jahre Freude bereiten. Wichtige Tipps: Niemals im Geschirrspüler reinigen Niemals tropfnass stehen oder liegen lassen Nie zum Trocknen auf die Heizung legen Nie nass in die Sonne stellen Nach dem Gebrauch mit Seife/Spülmittel reinigen und abtrocken. Unbehandelte Schneidebretter können nachträglich mit Olivenöl behandelt werden massiv, geölt Masse: 34 × 24 × 2 cm Lieferfrist: 2-3 Tage",
+    "article_no": "3, 3.1, 3.2",
+    "price": "CHF62.00",
+    "variations": [
+        {
+            "label": "Schneidbrett Stern - Holzart",
+            "options": [
+                {
+                    "value": "ahorn",
+                    "label": "Ahorn"
+                },
+                {
+                    "value": "kirschbaum",
+                    "label": "Kirschbaum"
+                },
+                {
+                    "value": "nussbaum",
+                    "label": "Nussbaum"
+                }
+            ]
+        }
+    ],
+    "image": [
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Schneidbrett-Stern–-Ahorn-1.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Schneidbrett-Stern-–-Ahorn-2.jpg"
+    ],
+    "slug": "schneidbrett-stern-europaeischer-nussbaum",
+    "scraped_at": "2025-12-01T20:42:30+00:00",
+    "category": "Schneidebretter"
+}

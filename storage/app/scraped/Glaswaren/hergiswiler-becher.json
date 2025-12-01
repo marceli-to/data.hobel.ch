@@ -1,0 +1,37 @@
+{
+    "url": "https://shop.hobel.ch/produkt/hergiswiler-becher/",
+    "title": "Hergiswiler – Becher",
+    "description": null,
+    "article_no": "92.9, 92.10, 92.11, 92.12, 92.1",
+    "price": [
+        "CHF24.00",
+        "CHF36.00"
+    ],
+    "variations": [
+        {
+            "label": "Hergiswiler Becher - Grösse",
+            "options": [
+                {
+                    "value": "becher-aufgetrieben-1-dl",
+                    "label": "Becher aufgetrieben - 1 dl"
+                },
+                {
+                    "value": "becher-aufgetrieben-2-dl",
+                    "label": "Becher aufgetrieben - 2 dl"
+                },
+                {
+                    "value": "becher-aufgetrieben-3-dl",
+                    "label": "Becher aufgetrieben - 3 dl"
+                },
+                {
+                    "value": "whiskybecher-aufgetrieben-80x90mm",
+                    "label": "Whiskybecher aufgetrieben - 80x90mm"
+                }
+            ]
+        }
+    ],
+    "image": "https://shop.hobel.ch/wp-content/uploads/2019/03/Hergiswiler-–-Becher-1.jpg",
+    "slug": "hergiswiler-becher",
+    "scraped_at": "2025-12-01T20:42:48+00:00",
+    "category": "Glaswaren"
+}

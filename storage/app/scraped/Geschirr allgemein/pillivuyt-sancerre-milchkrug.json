@@ -1,0 +1,33 @@
+{
+    "url": "https://shop.hobel.ch/produkt/pillivuyt-sancerre-michkrug/",
+    "title": "Pillivuyt – Sancerre – Milchkrug",
+    "description": null,
+    "article_no": "106.117, 106.118, 106.118",
+    "price": [
+        "CHF19.90",
+        "CHF27.60"
+    ],
+    "variations": [
+        {
+            "label": "Milchkrug Sancerre - Grösse",
+            "options": [
+                {
+                    "value": "5-cl",
+                    "label": "5 cl"
+                },
+                {
+                    "value": "15-cl",
+                    "label": "15 cl"
+                },
+                {
+                    "value": "35-cl",
+                    "label": "35 cl"
+                }
+            ]
+        }
+    ],
+    "image": "https://shop.hobel.ch/wp-content/uploads/2019/03/Pillivuyt-–-Sancerre-–-Milchkrug-1.jpg",
+    "slug": "pillivuyt-sancerre-michkrug",
+    "scraped_at": "2025-12-01T20:42:44+00:00",
+    "category": "Geschirr allgemein"
+}

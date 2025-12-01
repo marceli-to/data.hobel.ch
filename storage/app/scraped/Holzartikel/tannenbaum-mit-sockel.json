@@ -1,0 +1,33 @@
+{
+    "url": "https://shop.hobel.ch/produkt/tannenbaum-mittel/",
+    "title": "Tannenbaum mit Sockel",
+    "description": "Birkensperrholzplatte, roh , Standfuss Eiche roh Lieferfrist: 2-3 Tage",
+    "article_no": "36",
+    "price": [
+        "CHF13.00",
+        "CHF24.00"
+    ],
+    "variations": [
+        {
+            "label": "Tannenbaum mit Sockel - Grösse",
+            "options": [
+                {
+                    "value": "tannenbaum-mit-sockel-gross-61-x-36-x-1-cm",
+                    "label": "Tannenbaum mit Sockel gross - 61 x 36 x 1 cm"
+                },
+                {
+                    "value": "tannenbaum-mit-sockel-klein-25-x-14-5-x-1-cm",
+                    "label": "Tannenbaum mit Sockel klein - 25 x 14.5 x 1 cm"
+                },
+                {
+                    "value": "tannenbaum-mit-sockel-mittel-40-x-23-5-x-1-cm",
+                    "label": "Tannenbaum mit Sockel mittel - 40 x 23.5 x 1 cm"
+                }
+            ]
+        }
+    ],
+    "image": "https://shop.hobel.ch/wp-content/uploads/2019/01/Tannenbaum-mit-Sockel-1.jpg",
+    "slug": "tannenbaum-mittel",
+    "scraped_at": "2025-12-01T20:42:39+00:00",
+    "category": "Holzartikel"
+}

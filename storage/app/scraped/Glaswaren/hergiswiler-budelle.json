@@ -1,0 +1,45 @@
+{
+    "url": "https://shop.hobel.ch/produkt/hergiswiler-budelle-flaschen/",
+    "title": "Hergiswiler – Budelle",
+    "description": null,
+    "article_no": "91, 91.1, 91.2, 91.3, 91.4, 91.5",
+    "price": [
+        "CHF20.00",
+        "CHF52.00"
+    ],
+    "variations": [
+        {
+            "label": "Budelle - Grösse",
+            "options": [
+                {
+                    "value": "1-dl",
+                    "label": "1 dl"
+                },
+                {
+                    "value": "1-l",
+                    "label": "1 l"
+                },
+                {
+                    "value": "15-l",
+                    "label": "1,5 l"
+                },
+                {
+                    "value": "2-dl",
+                    "label": "2 dl"
+                },
+                {
+                    "value": "3-dl",
+                    "label": "3 dl"
+                },
+                {
+                    "value": "5-dl",
+                    "label": "5 dl"
+                }
+            ]
+        }
+    ],
+    "image": "https://shop.hobel.ch/wp-content/uploads/2019/03/Hergiswiler-–-Budelle-1.jpg",
+    "slug": "hergiswiler-budelle-flaschen",
+    "scraped_at": "2025-12-01T20:42:48+00:00",
+    "category": "Glaswaren"
+}

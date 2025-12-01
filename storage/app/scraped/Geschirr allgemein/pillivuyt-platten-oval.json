@@ -1,0 +1,57 @@
+{
+    "url": "https://shop.hobel.ch/produkt/pillivuyt-platten-oval/",
+    "title": "Pillivuyt – Platten oval",
+    "description": null,
+    "article_no": "106.69, 106.70, 106.71, 106.72, 106.73, 106.74, 106.76, 106.77",
+    "price": [
+        "CHF19.50",
+        "CHF128.50"
+    ],
+    "variations": [
+        {
+            "label": "Pillivuyt - Platten oval - Grösse",
+            "options": [
+                {
+                    "value": "platten-oval-nr-6-ordinaire",
+                    "label": "Platten oval Nr. 6 ordinaire"
+                },
+                {
+                    "value": "platten-oval-nr-7-ordinaire",
+                    "label": "Platten oval Nr. 7 ordinaire"
+                },
+                {
+                    "value": "platten-oval-nr-8-ordinaire",
+                    "label": "Platten oval Nr. 8 ordinaire"
+                },
+                {
+                    "value": "platten-oval-nr-9-ordinaire",
+                    "label": "Platten oval Nr. 9 ordinaire"
+                },
+                {
+                    "value": "platten-oval-nr-10-ordinaire",
+                    "label": "Platten oval Nr. 10 ordinaire"
+                },
+                {
+                    "value": "platten-oval-nr-11-ordinaire",
+                    "label": "Platten oval Nr. 11 ordinaire"
+                },
+                {
+                    "value": "platten-oval-nr-12-ordinaire",
+                    "label": "Platten oval Nr. 12 ordinaire"
+                },
+                {
+                    "value": "platten-oval-nr-13-ordinaire",
+                    "label": "Platten oval Nr. 13 ordinaire"
+                },
+                {
+                    "value": "platten-oval-nr-14-ordinaire",
+                    "label": "Platten oval Nr. 14 ordinaire"
+                }
+            ]
+        }
+    ],
+    "image": "https://shop.hobel.ch/wp-content/uploads/2019/02/Pillivuyt-–-Platten-oval-1.jpg",
+    "slug": "pillivuyt-platten-oval",
+    "scraped_at": "2025-12-01T20:42:45+00:00",
+    "category": "Geschirr allgemein"
+}

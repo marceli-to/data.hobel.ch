@@ -1,0 +1,29 @@
+{
+    "url": "https://shop.hobel.ch/produkt/sitzbank-natura-nussbaum-europ/",
+    "title": "Sitzbank Natura – Nussbaum",
+    "description": "Die Sitzbank wird aus massivem Nussbaum gefertigt. Das solide und langlebige Produkt verspricht angenehmes Sitzen. Die Form überzeugt mit einer schlichten und reduzierten Formensprache. Die klare Linienführung und eine durchdachte Konstruktion überzeugen. Nussbaum massiv, geölt oder Natur lackiert Masse: 110 × 35 x 45 cm Lieferfrist: 4−6 Wochen, Lieferung durch Hobel",
+    "article_no": "49",
+    "price": "CHF1'150.00",
+    "variations": [
+        {
+            "label": "Sitzbank Natura - Oberfläche",
+            "options": [
+                {
+                    "value": "geoelt",
+                    "label": "geölt"
+                },
+                {
+                    "value": "natur-lackiert",
+                    "label": "Natur lackiert"
+                }
+            ]
+        }
+    ],
+    "image": [
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Sitzbank-Natura-–-Nussbaum-seite-1.jpg",
+        "https://shop.hobel.ch/wp-content/uploads/2019/01/Sitzbank-Natura-–-Nussbaum-2.jpg"
+    ],
+    "slug": "sitzbank-natura-nussbaum-europ",
+    "scraped_at": "2025-12-01T20:42:21+00:00",
+    "category": "Bänke"
+}

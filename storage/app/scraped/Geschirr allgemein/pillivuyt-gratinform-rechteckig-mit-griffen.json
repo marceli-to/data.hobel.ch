@@ -1,0 +1,29 @@
+{
+    "url": "https://shop.hobel.ch/produkt/pillivuyt-gratinform-rechteckig-mit-griffen/",
+    "title": "Pillivuyt – Gratinform rechteckig mit Griffen",
+    "description": null,
+    "article_no": "106.53, 106.54, 106.55",
+    "price": [
+        "CHF60.50",
+        "CHF74.90"
+    ],
+    "variations": [
+        {
+            "label": "Pillivuyt - Gratinform - Grösse",
+            "options": [
+                {
+                    "value": "320-x-175-mm",
+                    "label": "320 x 175 mm"
+                },
+                {
+                    "value": "397-x-225-mm",
+                    "label": "397 x 225 mm"
+                }
+            ]
+        }
+    ],
+    "image": "https://shop.hobel.ch/wp-content/uploads/2019/02/Pillivuyt-–-Gratinform-rechteckig-mit-Griffen-1.jpg",
+    "slug": "pillivuyt-gratinform-rechteckig-mit-griffen",
+    "scraped_at": "2025-12-01T20:42:45+00:00",
+    "category": "Geschirr allgemein"
+}

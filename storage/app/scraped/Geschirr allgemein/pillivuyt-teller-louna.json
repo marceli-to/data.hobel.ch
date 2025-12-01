@@ -1,0 +1,29 @@
+{
+    "url": "https://shop.hobel.ch/produkt/teller-bretagne-louna/",
+    "title": "Pillivuyt – Teller Louna",
+    "description": null,
+    "article_no": "106.63,",
+    "price": [
+        "CHF23.90",
+        "CHF31.90"
+    ],
+    "variations": [
+        {
+            "label": "Pillivuyt - Teller Louna - Grösse",
+            "options": [
+                {
+                    "value": "teller-flach-o-207mm-weiss",
+                    "label": "Teller flach Ø 207mm weiss"
+                },
+                {
+                    "value": "teller-flach-o-262mm-weiss",
+                    "label": "Teller flach Ø 262mm weiss"
+                }
+            ]
+        }
+    ],
+    "image": "https://shop.hobel.ch/wp-content/uploads/2019/02/Pillivuyt-–-Teller-Louna-1.jpg",
+    "slug": "teller-bretagne-louna",
+    "scraped_at": "2025-12-01T20:42:45+00:00",
+    "category": "Geschirr allgemein"
+}
