@@ -1,6 +1,6 @@
 <template>
   <div class="flex-1 container mx-auto p-4">
-    <h1 class="text-2xl font-bold mb-6">Products</h1>
+    <h1 class="text-2xl font-bold mb-6">Products ({{ products.length }})</h1>
 
     <div v-if="loading" class="text-center py-8">
       Loading...
