@@ -1,7 +1,9 @@
 <template>
   <div class="flex-1 container mx-auto p-4">
-    <h1 class="text-2xl font-bold mb-6">WooCommerce Products ({{ products.length }})</h1>
-
+    <div class="mb-6">
+      <h1 class="text-2xl font-bold mb-1">Products shop.hobel.ch</h1>
+      Total Products: {{ products.length }}
+    </div>
     <div v-if="loading" class="text-center py-8">
       Loading...
     </div>

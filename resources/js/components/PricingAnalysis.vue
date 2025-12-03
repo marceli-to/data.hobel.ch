@@ -109,7 +109,7 @@
     </div>
 
     <!-- Wood Type Comparison -->
-    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 hidden">
       <h3 class="font-semibold text-lg mb-3">Wood Type Price Comparison (100cm × 200cm)</h3>
       <div class="space-y-2">
         <div v-for="wood in woodTypePrices" :key="wood.name" class="flex items-center justify-between">
@@ -126,7 +126,7 @@
     </div>
 
     <!-- Volume Discount -->
-    <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+    <div class="bg-green-50 border border-green-200 rounded-lg p-4 hidden">
       <h3 class="font-semibold text-lg mb-3">Volume Discount Pattern (100cm width)</h3>
       <div class="text-sm text-gray-700 mb-3">All wood types show volume discounts - price per m² decreases as area increases:</div>
 
@@ -147,7 +147,7 @@
     </div>
 
     <!-- Width Comparison -->
-    <div class="bg-purple-50 border border-purple-200 rounded-lg p-4">
+    <div class="bg-purple-50 border border-purple-200 rounded-lg p-4 hidden">
       <h3 class="font-semibold text-lg mb-3">Width Impact (200cm length)</h3>
       <div class="text-sm text-gray-700 mb-3">Wider pieces also benefit from volume pricing:</div>
 
@@ -184,8 +184,8 @@ const selectedLength = ref('200 cm');
 
 // Formula calculator state
 const formulaWood = ref('Amerikanischer Nussbaum');
-const formulaWidth = ref(75);
-const formulaLength = ref(185);
+const formulaWidth = ref(100);
+const formulaLength = ref(200);
 
 // Pricing formulas (derived from analysis)
 const pricingFormulas = {
