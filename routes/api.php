@@ -17,6 +17,7 @@ Route::middleware('web')->group(function () {
 
     Route::get('/products/{product}/variations', [ProductVariationController::class, 'index']);
     Route::put('/products/{product}/variations/{variation}', [ProductVariationController::class, 'update']);
+    Route::post('/products/{product}/variations/bulk-update', [ProductVariationController::class, 'bulkUpdate']);
 
     Route::get('/products/{product}/remarks', [ProductController::class, 'remarks']);
     Route::post('/products/{product}/remarks', [ProductController::class, 'storeRemark']);

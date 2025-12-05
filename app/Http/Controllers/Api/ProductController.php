@@ -28,6 +28,7 @@ class ProductController extends Controller
     {
         $validated = request()->validate([
             'name' => 'sometimes|string|max:255',
+            'label' => 'sometimes|nullable|string|max:255',
             'sku' => 'sometimes|nullable|string|max:255',
             'type' => 'sometimes|in:simple,variable',
             'price' => 'sometimes|nullable|string',

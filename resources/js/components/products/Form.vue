@@ -32,6 +32,16 @@
           />
         </div>
 
+        <!-- Label -->
+        <div>
+          <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Label</label>
+          <input
+            v-model="product.label"
+            type="text"
+            class="w-full border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors rounded-sm"
+          />
+        </div>
+
         <!-- SKU -->
         <div>
           <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">SKU</label>
@@ -84,15 +94,31 @@
 
       <!-- Variations -->
       <div v-if="isEditing && variations.length > 0" class="mt-12">
-        <h2 class="text-lg font-semibold text-black mb-4">Variations</h2>
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-lg font-semibold text-black">Variations</h2>
+          <button
+            v-if="selectedVariations.length > 0"
+            @click="showMultiEdit = true"
+            class="px-3 py-1.5 text-sm bg-black text-white hover:bg-gray-800 transition-colors cursor-pointer rounded-sm"
+          >
+            Edit {{ selectedVariations.length }} selected
+          </button>
+        </div>
         <div class="overflow-x-auto">
           <table class="w-full">
             <thead class="bg-gray-50">
               <tr class="border-b border-gray-200">
                 <th class="py-3 pr-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+                <th class="py-3 pr-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Label</th>
                 <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">SKU</th>
                 <th class="py-3 px-2 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
                 <th class="py-3 pl-2 text-right text-xs font-medium text-gray-500 uppercase tracking-wider w-10"></th>
+                <th class="py-3 pl-2 text-right text-xs font-medium text-gray-500 uppercase tracking-wider w-10">
+                  <button @click="toggleAllVariations" class="text-gray-400 hover:text-black transition-colors cursor-pointer">
+                    <PhCheckSquare v-if="allVariationsSelected" class="w-5 h-5" />
+                    <PhSquare v-else class="w-5 h-5" />
+                  </button>
+                </th>
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-200">
@@ -100,8 +126,10 @@
                 v-for="variation in variations"
                 :key="variation.id"
                 class="hover:bg-gray-50 transition-colors"
+                :class="{ 'bg-gray-50': selectedVariations.includes(variation.id) }"
               >
-                <td class="py-3 pr-2 text-sm text-black">{{ variation.name }}</td>
+                  <td class="py-3 pr-2 text-sm text-black">{{ variation.name }}</td>
+                <td class="py-3 pr-2 text-sm text-black">{{ variation.label }}</td>
                 <td class="py-3 px-2 text-sm text-gray-500">{{ variation.sku || '—' }}</td>
                 <td class="py-3 px-2 text-sm text-right text-gray-900 tabular-nums">
                   {{ variation.price ? variation.price : '—' }}
@@ -115,10 +143,17 @@
                     <PhPencilSimple class="w-5 h-5" />
                   </button>
                 </td>
+                <td class="py-3 pl-2 text-right">
+                  <button @click="toggleVariation(variation.id)" class="text-gray-400 hover:text-black transition-colors cursor-pointer">
+                    <PhCheckSquare v-if="selectedVariations.includes(variation.id)" class="w-5 h-5 text-black" />
+                    <PhSquare v-else class="w-5 h-5" />
+                  </button>
+                </td>
               </tr>
             </tbody>
           </table>
         </div>
+
       </div>
     </div>
   </div>
@@ -130,14 +165,24 @@
     @close="editingVariation = null"
     @saved="fetchVariations"
   />
+
+  <!-- Variation Multi Edit Lightbox -->
+  <VariationMultiEditLightbox
+    :show="showMultiEdit"
+    :product-id="route.params.id"
+    :selected-variation-ids="selectedVariations"
+    @close="showMultiEdit = false"
+    @saved="handleMultiEditSaved"
+  />
 </template>
 
 <script setup>
 import { ref, computed, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import axios from 'axios';
-import { PhArrowLeft, PhPencilSimple } from '@phosphor-icons/vue';
+import { PhArrowLeft, PhPencilSimple, PhSquare, PhCheckSquare } from '@phosphor-icons/vue';
 import VariationEditLightbox from '../lightbox/VariationEdit.vue';
+import VariationMultiEditLightbox from '../lightbox/VariationMultiEdit.vue';
 
 const route = useRoute();
 const router = useRouter();
@@ -147,6 +192,8 @@ const variations = ref([]);
 const loading = ref(true);
 const saving = ref(false);
 const editingVariation = ref(null);
+const selectedVariations = ref([]);
+const showMultiEdit = ref(false);
 
 const isEditing = computed(() => !!route.params.id);
 
@@ -186,6 +233,32 @@ const fetchVariations = async () => {
 
 const editVariation = (variation) => {
   editingVariation.value = variation;
+};
+
+const allVariationsSelected = computed(() => {
+  return variations.value.length > 0 && selectedVariations.value.length === variations.value.length;
+});
+
+const toggleVariation = (id) => {
+  const index = selectedVariations.value.indexOf(id);
+  if (index === -1) {
+    selectedVariations.value.push(id);
+  } else {
+    selectedVariations.value.splice(index, 1);
+  }
+};
+
+const toggleAllVariations = () => {
+  if (allVariationsSelected.value) {
+    selectedVariations.value = [];
+  } else {
+    selectedVariations.value = variations.value.map(v => v.id);
+  }
+};
+
+const handleMultiEditSaved = () => {
+  selectedVariations.value = [];
+  fetchVariations();
 };
 
 const saveProduct = async () => {

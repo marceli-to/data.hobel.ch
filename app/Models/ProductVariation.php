@@ -14,6 +14,7 @@ class ProductVariation extends Model
         'parent_sku',
         'sku',
         'name',
+        'label',
         'description',
         'published',
         'visibility',

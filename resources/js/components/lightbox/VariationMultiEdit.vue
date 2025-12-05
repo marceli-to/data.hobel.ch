@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="variation"
+    v-if="show"
     @click="$emit('close')"
     class="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4"
   >
@@ -10,8 +10,8 @@
     >
       <div class="flex justify-between items-center p-4 border-b border-gray-200 relative">
         <div>
-          <h2 class="text-lg font-semibold text-black">Edit Variation</h2>
-          <p class="text-sm text-gray-500">{{ variation.name }}</p>
+          <h2 class="text-lg font-semibold text-black">Edit {{ selectedCount }} Variation{{ selectedCount > 1 ? 's' : '' }}</h2>
+          <p class="text-sm text-gray-500">Only filled fields will be updated</p>
         </div>
         <button @click="$emit('close')" class="text-gray-400 w-8 h-8 absolute top-2 right-2 flex items-center justify-center hover:text-black transition-colors cursor-pointer rounded-full">
           <PhX class="w-5 h-5" />
@@ -19,13 +19,14 @@
       </div>
 
       <div class="overflow-y-auto flex-1 p-4">
-        <form @submit.prevent="save" class="space-y-4">
+        <form @submit.prevent="submit" class="space-y-4">
           <!-- Name -->
           <div>
             <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Name</label>
             <input
               v-model="form.name"
               type="text"
+              placeholder="Leave empty to keep current"
               class="w-full border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors rounded-sm"
             />
           </div>
@@ -36,6 +37,7 @@
             <input
               v-model="form.label"
               type="text"
+              placeholder="Leave empty to keep current"
               class="w-full border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors rounded-sm"
             />
           </div>
@@ -46,6 +48,7 @@
             <input
               v-model="form.sku"
               type="text"
+              placeholder="Leave empty to keep current"
               class="w-full border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors rounded-sm"
             />
           </div>
@@ -56,6 +59,7 @@
             <input
               v-model="form.price"
               type="text"
+              placeholder="Leave empty to keep current"
               class="w-full border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors rounded-sm"
             />
           </div>
@@ -70,11 +74,11 @@
           Cancel
         </button>
         <button
-          @click="save"
-          :disabled="saving"
+          @click="submit"
+          :disabled="saving || !hasChanges"
           class="px-4 py-2 text-sm bg-black text-white hover:bg-gray-800 transition-colors cursor-pointer rounded-sm disabled:bg-gray-300 disabled:cursor-not-allowed"
         >
-          {{ saving ? 'Saving...' : 'Save' }}
+          {{ saving ? 'Saving...' : 'Update' }}
         </button>
       </div>
     </div>
@@ -82,18 +86,22 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue';
+import { ref, computed } from 'vue';
 import axios from 'axios';
 import { PhX } from '@phosphor-icons/vue';
 
 const props = defineProps({
-  variation: {
-    type: Object,
-    default: null
+  show: {
+    type: Boolean,
+    default: false
   },
   productId: {
     type: [Number, String],
     required: true
+  },
+  selectedVariationIds: {
+    type: Array,
+    default: () => []
   }
 });
 
@@ -107,27 +115,37 @@ const form = ref({
 });
 const saving = ref(false);
 
-const save = async () => {
+const selectedCount = computed(() => props.selectedVariationIds.length);
+
+const hasChanges = computed(() => {
+  return form.value.name || form.value.label || form.value.sku || form.value.price;
+});
+
+const submit = async () => {
+  if (!hasChanges.value) return;
+
   saving.value = true;
   try {
-    await axios.put(`/api/products/${props.productId}/variations/${props.variation.id}`, form.value);
+    const updates = {};
+    if (form.value.name) updates.name = form.value.name;
+    if (form.value.label) updates.label = form.value.label;
+    if (form.value.sku) updates.sku = form.value.sku;
+    if (form.value.price) updates.price = form.value.price;
+
+    await axios.post(`/api/products/${props.productId}/variations/bulk-update`, {
+      variation_ids: props.selectedVariationIds,
+      updates
+    });
+
+    // Reset form
+    form.value = { name: '', label: '', sku: '', price: '' };
+    
     emit('saved');
     emit('close');
   } catch (error) {
-    console.error('Error saving variation:', error);
+    console.error('Error updating variations:', error);
   } finally {
     saving.value = false;
   }
 };
-
-watch(() => props.variation, (newVariation) => {
-  if (newVariation) {
-    form.value = {
-      name: newVariation.name || '',
-      label: newVariation.label || '',
-      sku: newVariation.sku || '',
-      price: newVariation.price || ''
-    };
-  }
-}, { immediate: true });
 </script>

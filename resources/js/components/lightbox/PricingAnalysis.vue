@@ -19,17 +19,19 @@
       </div>
 
       <div class="overflow-y-auto flex-1 p-6">
-        <PricingAnalysis :variations="product.variations" />
+        <component :is="analysisComponent" :variations="product.variations" />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import { computed } from 'vue';
 import { PhX } from '@phosphor-icons/vue';
-import PricingAnalysis from '../PricingAnalysis.vue';
+import PricingAnalysis_9367 from '../PricingAnalysis_9367.vue';
+import PricingAnalysis_1431 from '../PricingAnalysis_1431.vue';
 
-defineProps({
+const props = defineProps({
   product: {
     type: Object,
     default: null
@@ -37,4 +39,14 @@ defineProps({
 });
 
 defineEmits(['close']);
+
+const analysisComponents = {
+  9367: PricingAnalysis_9367,
+  1431: PricingAnalysis_1431,
+};
+
+const analysisComponent = computed(() => {
+  if (!props.product?.wc_id) return null;
+  return analysisComponents[Number(props.product.wc_id)] || null;
+});
 </script>

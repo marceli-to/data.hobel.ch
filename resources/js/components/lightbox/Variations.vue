@@ -17,7 +17,6 @@
           <PhX class="w-5 h-5" />
         </button>
       </div>
-
       <div v-if="product.variations && product.variations.length > 0" class="overflow-y-auto flex-1">
         <div class="divide-y divide-gray-100">
           <div

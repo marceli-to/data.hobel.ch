@@ -140,7 +140,7 @@
                 <PhPencilSimple class="w-5 h-5" />
               </router-link>
               <button
-                v-if="product.id === 146"
+                v-if="hasAnalysisComponent(product.wc_id)"
                 @click="openAnalysisLightbox(product)"
                 class="text-gray-400 hover:text-black transition-colors cursor-pointer"
                 title="Price Analysis"
@@ -336,6 +336,12 @@ const openVariationsLightbox = async (product) => {
   } catch (error) {
     console.error('Error fetching variations:', error);
   }
+};
+
+const analysisComponentIds = [9367, 1431];
+
+const hasAnalysisComponent = (wcId) => {
+  return analysisComponentIds.includes(Number(wcId));
 };
 
 const openAnalysisLightbox = async (product) => {
