@@ -96,7 +96,7 @@ class ScrapeUrl extends Command
                     $product['scraped_at'] = now()->toIso8601String();
                     $successCount++;
 
-                    $this->line("  <fg=green>✓ Success</>");
+                    $this->line('  <fg=green>✓ Success</>');
                 } catch (\Exception $e) {
                     $this->line("  <fg=red>✗ Failed: {$e->getMessage()}</>");
                     $failureCount++;

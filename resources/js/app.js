@@ -1,15 +1,11 @@
 import './bootstrap';
 import { createApp } from 'vue';
-import ProductsTable from './components/ProductsTable.vue';
-import WcProductsTable from './components/WcProductsTable.vue';
+import router from './router';
+import App from './App.vue';
 
 const appElement = document.getElementById('app');
 const wcAppElement = document.getElementById('wc-app');
 
 if (appElement) {
-    createApp(ProductsTable).mount('#app');
-}
-
-if (wcAppElement) {
-    createApp(WcProductsTable).mount('#wc-app');
+    createApp(App).use(router).mount('#app');
 }

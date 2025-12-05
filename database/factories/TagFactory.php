@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Category>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Tag>
  */
-class CategoryFactory extends Factory
+class TagFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,6 +19,7 @@ class CategoryFactory extends Factory
         $name = fake()->unique()->words(2, true);
 
         return [
+            'category_id' => \App\Models\Category::factory(),
             'name' => $name,
             'slug' => \Illuminate\Support\Str::slug($name),
         ];
