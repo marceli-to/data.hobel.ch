@@ -17,20 +17,20 @@
           <router-link
             :to="{ name: 'products.index' }"
             class="flex items-center gap-3 p-4 text-sm transition-colors"
-            :class="isActive('products') ? 'bg-gray-200' : 'text-gray-700 hover:bg-gray-200'"
+            :class="isActive('products') ? 'bg-gray-100' : 'text-gray-700 hover:bg-gray-200'"
           >
             <PhPackage class="w-5 h-5" />
-            Products
+            Produkte
           </router-link>
         </li>
         <li>
           <router-link
             :to="{ name: 'wood-types.index' }"
             class="flex items-center gap-3 p-4 text-sm transition-colors"
-            :class="isActive('wood-types') ? 'bg-gray-200' : 'text-gray-700 hover:bg-gray-200'"
+            :class="isActive('wood-types') ? 'bg-gray-100' : 'text-gray-700 hover:bg-gray-200'"
           >
             <PhTree class="w-5 h-5" />
-            Wood Types
+            Holzarten
           </router-link>
         </li>
       </ul>

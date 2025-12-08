@@ -10,7 +10,7 @@
     >
       <div class="flex justify-between items-center p-4 border-b border-gray-200 relative">
         <div>
-          <h2 class="text-lg font-semibold text-black">Filters</h2>
+          <h2 class="text-lg font-semibold text-black">Filter</h2>
         </div>
         <button @click="$emit('close')" class="text-gray-400 w-8 h-8 absolute top-2 right-2 flex items-center justify-center hover:text-black transition-colors cursor-pointer rounded-full">
           <PhX class="w-5 h-5" />
@@ -20,7 +20,7 @@
       <div class="overflow-y-auto flex-1 p-4 space-y-6">
         <!-- State Filter -->
         <div>
-          <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">State</label>
+          <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Status</label>
           <div class="flex flex-wrap gap-2">
             <button
               v-for="state in states"
@@ -40,7 +40,7 @@
 
         <!-- Type Filter -->
         <div>
-          <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Type (New)</label>
+          <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Typ (Neu)</label>
           <div class="flex flex-wrap gap-2">
             <button
               v-for="type in newTypes"
@@ -60,7 +60,7 @@
 
         <!-- Old Type Filter -->
         <div>
-          <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Type (Old)</label>
+          <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Typ (Alt)</label>
           <div class="flex flex-wrap gap-2">
             <button
               v-for="type in oldTypes"
@@ -80,7 +80,7 @@
 
         <!-- Category Filter -->
         <div>
-          <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Category</label>
+          <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Kategorie</label>
           <div class="flex flex-wrap gap-2">
             <button
               v-for="category in categories"
@@ -105,14 +105,14 @@
           @click="clearFilters"
           class="px-4 py-2 text-sm text-gray-600 hover:text-black transition-colors cursor-pointer rounded-sm"
         >
-          Clear all
+          Alle löschen
         </button>
         <div class="flex-1"></div>
         <button
           @click="$emit('close')"
           class="px-4 py-2 text-sm bg-black text-white hover:bg-gray-800 transition-colors cursor-pointer rounded-sm"
         >
-          Done
+          Fertig
         </button>
       </div>
     </div>
@@ -148,19 +148,19 @@ const props = defineProps({
 const emit = defineEmits(['close', 'toggle-category', 'toggle-state', 'toggle-type', 'clear-filters']);
 
 const states = [
-  { value: 'pending', label: 'Pending' },
-  { value: 'done', label: 'Done' }
+  { value: 'pending', label: 'Ausstehend' },
+  { value: 'done', label: 'Erledigt' }
 ];
 
 const newTypes = [
-  { value: 'configurable', label: 'Configurable' },
-  { value: 'simple', label: 'Simple' },
-  { value: 'variations', label: 'Variations' }
+  { value: 'configurable', label: 'Konfigurierbar' },
+  { value: 'simple', label: 'Einfach' },
+  { value: 'variations', label: 'Varianten' }
 ];
 
 const oldTypes = [
-  { value: 'old_simple', label: 'Simple' },
-  { value: 'old_variable', label: 'Variable' }
+  { value: 'old_simple', label: 'Einfach' },
+  { value: 'old_variable', label: 'Variabel' }
 ];
 
 const toggleCategory = (category) => {

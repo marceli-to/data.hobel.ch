@@ -11,7 +11,7 @@
       <div class="flex justify-between items-center p-4 border-b border-gray-200 relative">
         <div>
           <h2 class="text-lg font-semibold text-black">{{ product.name }}</h2>
-          <p class="text-sm text-gray-500">{{ product.variations?.length || 0 }} variations</p>
+          <p class="text-sm text-gray-500">{{ product.variations?.length || 0 }} Varianten</p>
         </div>
         <button @click="$emit('close')" class="text-gray-400 w-8 h-8 absolute top-2 right-2 flex items-center justify-center hover:text-black transition-colors cursor-pointer rounded-full">
           <PhX class="w-5 h-5" />
@@ -47,9 +47,9 @@
                     class="text-xs"
                     :class="variation.in_stock ? 'text-gray-600' : 'text-gray-400'"
                   >
-                    {{ variation.in_stock ? 'In Stock' : 'Out of Stock' }}
+                    {{ variation.in_stock ? 'Auf Lager' : 'Nicht vorrätig' }}
                   </span>
-                  <span v-if="variation.stock" class="text-xs text-gray-500">{{ variation.stock }} units</span>
+                  <span v-if="variation.stock" class="text-xs text-gray-500">{{ variation.stock }} Stück</span>
                 </div>
               </div>
             </div>
@@ -57,7 +57,7 @@
         </div>
       </div>
       <div v-else class="px-6 py-12 text-center text-gray-400 text-sm">
-        No variations found.
+        Keine Varianten gefunden.
       </div>
     </div>
   </div>

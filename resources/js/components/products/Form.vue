@@ -3,20 +3,20 @@
     <!-- Header -->
     <div class="mb-8 flex justify-between items-start">
         <h1 class="text-2xl font-semibold text-black mb-1">
-          {{ isEditing ? product?.name : 'New Product' }}
+          {{ isEditing ? product?.name : 'Neues Produkt' }}
         </h1>
-        <router-link 
-          :to="{ name: 'products.index' }" 
+        <router-link
+          :to="{ name: 'products.index' }"
           class="text-sm text-gray-500 hover:text-black transition-colors flex items-center gap-1 mb-2"
         >
           <PhArrowLeft class="w-4 h-4" />
-          Back to Products
+          Zurück zu Produkten
         </router-link>
     </div>
 
     <!-- Loading State -->
     <div v-if="loading" class="text-center py-16 text-gray-400">
-      Loading...
+      Lädt...
     </div>
 
     <!-- Form -->
@@ -34,7 +34,7 @@
 
         <!-- Label -->
         <div>
-          <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Label</label>
+          <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Bezeichnung</label>
           <input
             v-model="product.label"
             type="text"
@@ -66,7 +66,7 @@
 
         <!-- Price -->
         <div>
-          <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Price</label>
+          <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Preis</label>
           <input
             v-model="product.price"
             type="text"
@@ -81,13 +81,13 @@
             :disabled="saving"
             class="px-4 py-2 text-sm bg-black text-white hover:bg-gray-800 transition-colors cursor-pointer rounded-sm disabled:bg-gray-300 disabled:cursor-not-allowed"
           >
-            {{ saving ? 'Saving...' : 'Save' }}
+            {{ saving ? 'Speichert...' : 'Speichern' }}
           </button>
           <router-link
             :to="{ name: 'products.index' }"
             class="px-4 py-2 text-sm text-gray-600 hover:text-black transition-colors cursor-pointer rounded-sm"
           >
-            Cancel
+            Abbrechen
           </router-link>
         </div>
       </form>
@@ -95,24 +95,24 @@
       <!-- Variations -->
       <div v-if="isEditing && variations.length > 0" class="mt-12">
         <div class="flex justify-between items-center mb-4">
-          <h2 class="text-lg font-semibold text-black">Variations</h2>
+          <h2 class="text-lg font-semibold text-black">Varianten</h2>
           <button
             v-if="selectedVariations.length > 0"
             @click="showMultiEdit = true"
             class="px-3 py-1.5 text-sm bg-black text-white hover:bg-gray-800 transition-colors cursor-pointer rounded-sm"
           >
-            Edit {{ selectedVariations.length }} selected
+            {{ selectedVariations.length }} ausgewählt bearbeiten
           </button>
         </div>
         <div class="overflow-x-auto">
           <table class="w-full">
-            <thead class="bg-gray-50">
+            <thead>
               <tr class="border-b border-gray-200">
                 <th class="py-3 pr-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-                <th class="py-3 pr-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Label</th>
+                <th class="py-3 pr-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Bezeichnung</th>
                 <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">SKU</th>
-                <th class="py-3 px-2 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
-                <th class="py-3 pl-2 text-right text-xs font-medium text-gray-500 uppercase tracking-wider w-10"></th>
+                <th class="py-3 px-2 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Preis</th>
+                <th class="py-3 pl-2 text-right text-xs font-medium text-gray-500 uppercase tracking-wider w-20"></th>
                 <th class="py-3 pl-2 text-right text-xs font-medium text-gray-500 uppercase tracking-wider w-10">
                   <button @click="toggleAllVariations" class="text-gray-400 hover:text-black transition-colors cursor-pointer">
                     <PhCheckSquare v-if="allVariationsSelected" class="w-5 h-5" />
@@ -135,13 +135,22 @@
                   {{ variation.price ? variation.price : '—' }}
                 </td>
                 <td class="py-3 pl-2 text-right">
-                  <button
-                    @click="editVariation(variation)"
-                    class="text-gray-400 hover:text-black transition-colors cursor-pointer"
-                    title="Edit Variation"
-                  >
-                    <PhPencilSimple class="w-5 h-5" />
-                  </button>
+                  <div class="flex items-center justify-end gap-2">
+                    <button
+                      @click="editVariation(variation)"
+                      class="text-gray-400 hover:text-black transition-colors cursor-pointer"
+                      title="Variante bearbeiten"
+                    >
+                      <PhPencilSimple class="w-5 h-5" />
+                    </button>
+                    <button
+                      @click="confirmDeleteVariation(variation)"
+                      class="text-gray-400 hover:text-red-500 transition-colors cursor-pointer"
+                      title="Variante löschen"
+                    >
+                      <PhTrash class="w-5 h-5" />
+                    </button>
+                  </div>
                 </td>
                 <td class="py-3 pl-2 text-right">
                   <button @click="toggleVariation(variation.id)" class="text-gray-400 hover:text-black transition-colors cursor-pointer">
@@ -174,13 +183,41 @@
     @close="showMultiEdit = false"
     @saved="handleMultiEditSaved"
   />
+
+  <!-- Delete Variation Confirmation Lightbox -->
+  <div
+    v-if="deleteVariationConfirmation"
+    class="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+    @click.self="deleteVariationConfirmation = null"
+  >
+    <div class="bg-white p-6 rounded-sm shadow-lg max-w-md w-full mx-4">
+      <h3 class="text-lg font-semibold text-black mb-4">Variante löschen</h3>
+      <p class="text-sm text-gray-600 mb-6">
+        Sind Sie sicher, dass Sie "{{ deleteVariationConfirmation.name }}" löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.
+      </p>
+      <div class="flex justify-end gap-3">
+        <button
+          @click="deleteVariationConfirmation = null"
+          class="px-4 py-2 text-sm text-gray-600 hover:text-black transition-colors cursor-pointer"
+        >
+          Abbrechen
+        </button>
+        <button
+          @click="deleteVariation"
+          class="px-4 py-2 text-sm bg-red-500 text-white hover:bg-red-600 transition-colors cursor-pointer rounded-sm"
+        >
+          Löschen
+        </button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
 import { ref, computed, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import axios from 'axios';
-import { PhArrowLeft, PhPencilSimple, PhSquare, PhCheckSquare } from '@phosphor-icons/vue';
+import { PhArrowLeft, PhPencilSimple, PhSquare, PhCheckSquare, PhTrash } from '@phosphor-icons/vue';
 import VariationEditLightbox from '../lightbox/VariationEdit.vue';
 import VariationMultiEditLightbox from '../lightbox/VariationMultiEdit.vue';
 
@@ -194,6 +231,7 @@ const saving = ref(false);
 const editingVariation = ref(null);
 const selectedVariations = ref([]);
 const showMultiEdit = ref(false);
+const deleteVariationConfirmation = ref(null);
 
 const isEditing = computed(() => !!route.params.id);
 
@@ -259,6 +297,23 @@ const toggleAllVariations = () => {
 const handleMultiEditSaved = () => {
   selectedVariations.value = [];
   fetchVariations();
+};
+
+const confirmDeleteVariation = (variation) => {
+  deleteVariationConfirmation.value = variation;
+};
+
+const deleteVariation = async () => {
+  if (!deleteVariationConfirmation.value) return;
+
+  try {
+    await axios.delete(`/api/products/${route.params.id}/variations/${deleteVariationConfirmation.value.id}`);
+    variations.value = variations.value.filter(v => v.id !== deleteVariationConfirmation.value.id);
+  } catch (error) {
+    console.error('Error deleting variation:', error);
+  } finally {
+    deleteVariationConfirmation.value = null;
+  }
 };
 
 const saveProduct = async () => {

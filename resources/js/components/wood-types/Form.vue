@@ -3,20 +3,20 @@
     <!-- Header -->
     <div class="mb-8 flex justify-between items-start">
         <h1 class="text-2xl font-semibold text-black mb-1">
-          {{ isEditing ? woodType?.name : 'New Wood Type' }}
+          {{ isEditing ? woodType?.name : 'Neue Holzart' }}
         </h1>
-        <router-link 
-          :to="{ name: 'wood-types.index' }" 
+        <router-link
+          :to="{ name: 'wood-types.index' }"
           class="text-sm text-gray-500 hover:text-black transition-colors flex items-center gap-1 mb-2"
         >
           <PhArrowLeft class="w-4 h-4" />
-          Back to Wood Types
+          Zurück zu Holzarten
         </router-link>
     </div>
 
     <!-- Loading State -->
     <div v-if="loading" class="text-center py-16 text-gray-400">
-      Loading...
+      Lädt...
     </div>
 
     <!-- Form -->
@@ -35,7 +35,7 @@
 
         <!-- Price -->
         <div>
-          <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Price (Rate)</label>
+          <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Preis (Rate)</label>
           <input
             v-model="woodType.price"
             type="number"
@@ -53,13 +53,13 @@
             :disabled="saving"
             class="px-4 py-2 text-sm bg-black text-white hover:bg-gray-800 transition-colors cursor-pointer rounded-sm disabled:bg-gray-300 disabled:cursor-not-allowed"
           >
-            {{ saving ? 'Saving...' : 'Save' }}
+            {{ saving ? 'Speichert...' : 'Speichern' }}
           </button>
           <router-link
             :to="{ name: 'wood-types.index' }"
             class="px-4 py-2 text-sm text-gray-600 hover:text-black transition-colors cursor-pointer rounded-sm"
           >
-            Cancel
+            Abbrechen
           </router-link>
         </div>
       </form>

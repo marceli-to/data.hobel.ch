@@ -8,7 +8,7 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/{any?}', function () {
-        return view('app');
-    })->where('any', '.*');
+  Route::get('/{any?}', function () {
+    return view('app');
+  })->where('any', '.*');
 });

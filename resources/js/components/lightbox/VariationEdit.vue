@@ -10,7 +10,7 @@
     >
       <div class="flex justify-between items-center p-4 border-b border-gray-200 relative">
         <div>
-          <h2 class="text-lg font-semibold text-black">Edit Variation</h2>
+          <h2 class="text-lg font-semibold text-black">Variante bearbeiten</h2>
           <p class="text-sm text-gray-500">{{ variation.name }}</p>
         </div>
         <button @click="$emit('close')" class="text-gray-400 w-8 h-8 absolute top-2 right-2 flex items-center justify-center hover:text-black transition-colors cursor-pointer rounded-full">
@@ -32,7 +32,7 @@
 
           <!-- Label -->
           <div>
-            <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Label</label>
+            <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Bezeichnung</label>
             <input
               v-model="form.label"
               type="text"
@@ -52,7 +52,7 @@
 
           <!-- Price -->
           <div>
-            <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Price</label>
+            <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Preis</label>
             <input
               v-model="form.price"
               type="text"
@@ -67,14 +67,14 @@
           @click="$emit('close')"
           class="px-4 py-2 text-sm text-gray-600 hover:text-black transition-colors cursor-pointer rounded-sm"
         >
-          Cancel
+          Abbrechen
         </button>
         <button
           @click="save"
           :disabled="saving"
           class="px-4 py-2 text-sm bg-black text-white hover:bg-gray-800 transition-colors cursor-pointer rounded-sm disabled:bg-gray-300 disabled:cursor-not-allowed"
         >
-          {{ saving ? 'Saving...' : 'Save' }}
+          {{ saving ? 'Speichert...' : 'Speichern' }}
         </button>
       </div>
     </div>

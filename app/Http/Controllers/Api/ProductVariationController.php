@@ -54,4 +54,15 @@ class ProductVariationController extends Controller
 
         return response()->json(['message' => 'Variations updated']);
     }
+
+    public function destroy(Product $product, ProductVariation $variation): JsonResponse
+    {
+        if ($variation->product_id !== $product->id) {
+            return response()->json(['error' => 'Variation does not belong to this product'], 403);
+        }
+
+        $variation->delete();
+
+        return response()->json(['message' => 'Variation deleted']);
+    }
 }

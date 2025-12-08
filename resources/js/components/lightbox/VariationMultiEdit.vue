@@ -10,8 +10,8 @@
     >
       <div class="flex justify-between items-center p-4 border-b border-gray-200 relative">
         <div>
-          <h2 class="text-lg font-semibold text-black">Edit {{ selectedCount }} Variation{{ selectedCount > 1 ? 's' : '' }}</h2>
-          <p class="text-sm text-gray-500">Only filled fields will be updated</p>
+          <h2 class="text-lg font-semibold text-black">{{ selectedCount }} {{ selectedCount > 1 ? 'Varianten' : 'Variante' }} bearbeiten</h2>
+          <p class="text-sm text-gray-500">Nur ausgefüllte Felder werden aktualisiert</p>
         </div>
         <button @click="$emit('close')" class="text-gray-400 w-8 h-8 absolute top-2 right-2 flex items-center justify-center hover:text-black transition-colors cursor-pointer rounded-full">
           <PhX class="w-5 h-5" />
@@ -26,18 +26,18 @@
             <input
               v-model="form.name"
               type="text"
-              placeholder="Leave empty to keep current"
+              placeholder="Leer lassen um aktuellen Wert beizubehalten"
               class="w-full border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors rounded-sm"
             />
           </div>
 
           <!-- Label -->
           <div>
-            <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Label</label>
+            <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Bezeichnung</label>
             <input
               v-model="form.label"
               type="text"
-              placeholder="Leave empty to keep current"
+              placeholder="Leer lassen um aktuellen Wert beizubehalten"
               class="w-full border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors rounded-sm"
             />
           </div>
@@ -48,18 +48,18 @@
             <input
               v-model="form.sku"
               type="text"
-              placeholder="Leave empty to keep current"
+              placeholder="Leer lassen um aktuellen Wert beizubehalten"
               class="w-full border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors rounded-sm"
             />
           </div>
 
           <!-- Price -->
           <div>
-            <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Price</label>
+            <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Preis</label>
             <input
               v-model="form.price"
               type="text"
-              placeholder="Leave empty to keep current"
+              placeholder="Leer lassen um aktuellen Wert beizubehalten"
               class="w-full border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors rounded-sm"
             />
           </div>
@@ -71,14 +71,14 @@
           @click="$emit('close')"
           class="px-4 py-2 text-sm text-gray-600 hover:text-black transition-colors cursor-pointer rounded-sm"
         >
-          Cancel
+          Abbrechen
         </button>
         <button
           @click="submit"
           :disabled="saving || !hasChanges"
           class="px-4 py-2 text-sm bg-black text-white hover:bg-gray-800 transition-colors cursor-pointer rounded-sm disabled:bg-gray-300 disabled:cursor-not-allowed"
         >
-          {{ saving ? 'Saving...' : 'Update' }}
+          {{ saving ? 'Speichert...' : 'Aktualisieren' }}
         </button>
       </div>
     </div>

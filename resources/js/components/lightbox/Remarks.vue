@@ -11,7 +11,7 @@
       <div class="flex justify-between items-center p-4 border-b border-gray-200 relative">
         <div>
           <h2 class="text-lg font-semibold text-black">{{ product.name }}</h2>
-          <p class="text-sm text-gray-500">Remarks</p>
+          <p class="text-sm text-gray-500">Anmerkungen</p>
         </div>
         <button @click="$emit('close')" class="text-gray-400 w-8 h-8 absolute top-2 right-2 flex items-center justify-center hover:text-black transition-colors cursor-pointer rounded-full">
           <PhX class="w-5 h-5" />
@@ -19,7 +19,7 @@
       </div>
 
       <div v-if="loading" class="px-6 py-12 text-center text-gray-400 text-sm">
-        Loading...
+        Lädt...
       </div>
       <div v-else-if="remarks && remarks.length > 0" class="overflow-y-auto flex-1">
         <div class="divide-y divide-gray-100">
@@ -34,7 +34,7 @@
             <button
               @click="deleteRemark(remark.id)"
               class="text-gray-300 hover:text-red-500 transition-colors cursor-pointer shrink-0"
-              title="Delete remark"
+              title="Anmerkung löschen"
             >
               <PhTrash class="w-5 h-5" />
             </button>
@@ -42,7 +42,7 @@
         </div>
       </div>
       <div v-else class="px-6 py-12 text-center text-gray-400 text-sm">
-        No remarks found.
+        Keine Anmerkungen gefunden.
       </div>
 
       <!-- Add Remark Form -->
@@ -52,7 +52,7 @@
             v-model="newRemarkText"
             type="text"
             class="flex-1 border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors rounded-sm"
-            placeholder="Add a remark..."
+            placeholder="Anmerkung hinzufügen..."
             @keyup.enter="submitRemark"
           />
           <button
@@ -60,7 +60,7 @@
             :disabled="!newRemarkText.trim() || submitting"
             class="px-4 py-2 text-sm bg-black text-white hover:bg-gray-800 transition-colors cursor-pointer rounded-sm disabled:bg-gray-300 disabled:cursor-not-allowed"
           >
-            {{ submitting ? 'Saving...' : 'Add' }}
+            {{ submitting ? 'Speichert...' : 'Hinzufügen' }}
           </button>
         </div>
       </div>

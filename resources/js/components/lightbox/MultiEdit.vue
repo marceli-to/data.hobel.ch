@@ -10,8 +10,8 @@
     >
       <div class="flex justify-between items-center p-4 border-b border-gray-200 relative">
         <div>
-          <h2 class="text-lg font-semibold text-black">Edit Records</h2>
-          <p class="text-sm text-gray-500">{{ selectedCount }} item{{ selectedCount > 1 ? 's' : '' }} selected</p>
+          <h2 class="text-lg font-semibold text-black">Datensätze bearbeiten</h2>
+          <p class="text-sm text-gray-500">{{ selectedCount }} {{ selectedCount > 1 ? 'Artikel' : 'Artikel' }} ausgewählt</p>
         </div>
         <button @click="$emit('close')" class="text-gray-400 w-8 h-8 absolute top-2 right-2 flex items-center justify-center hover:text-black transition-colors cursor-pointer rounded-full">
           <PhX class="w-5 h-5" />
@@ -21,33 +21,33 @@
       <div class="overflow-y-auto flex-1 p-4">
         <!-- Action Selector -->
         <div v-if="!selectedAction">
-          <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Action</label>
+          <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Aktion</label>
           <select
             v-model="selectedAction"
             class="w-full border border-gray-200 px-1 py-2 text-sm rounded-sm focus:outline-none focus:border-black transition-colors"
           >
-            <option value="">Select an action...</option>
-            <option value="remarks">Add Remarks</option>
-            <option value="category_tags">Set Category/Tags</option>
-            <option value="set_type">Set type</option>
-            <option value="mark_done">Mark as done</option>
-            <option value="delete">Delete</option>
+            <option value="">Aktion wählen...</option>
+            <option value="remarks">Anmerkungen hinzufügen</option>
+            <option value="category_tags">Kategorie/Tags festlegen</option>
+            <option value="set_type">Typ festlegen</option>
+            <option value="mark_done">Als erledigt markieren</option>
+            <option value="delete">Löschen</option>
           </select>
         </div>
 
         <!-- Add Remarks Form -->
         <div v-if="selectedAction === 'remarks'" class="space-y-4">
           <div class="flex justify-between items-center">
-            <h3 class="text-sm font-medium text-black">Add Remarks</h3>
-            <button @click="selectedAction = ''" class="text-xs text-gray-500 hover:text-black transition-colors cursor-pointer rounded-sm">Back</button>
+            <h3 class="text-sm font-medium text-black">Anmerkungen hinzufügen</h3>
+            <button @click="selectedAction = ''" class="text-xs text-gray-500 hover:text-black transition-colors cursor-pointer rounded-sm">Zurück</button>
           </div>
           <div>
-            <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Remarks</label>
+            <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Anmerkungen</label>
             <textarea
               v-model="form.remarks"
               rows="4"
               class="w-full border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors resize-none rounded-sm"
-              placeholder="Enter remarks..."
+              placeholder="Anmerkungen eingeben..."
             ></textarea>
           </div>
           <div class="flex gap-3 justify-end pt-2">
@@ -55,13 +55,13 @@
               @click="$emit('close')"
               class="px-4 py-2 text-sm text-gray-600 hover:text-black transition-colors cursor-pointer rounded-sm"
             >
-              Cancel
+              Abbrechen
             </button>
             <button
               @click="submit"
               class="px-4 py-2 text-sm bg-black text-white hover:bg-gray-800 transition-colors cursor-pointer rounded-sm"
             >
-              Save
+              Speichern
             </button>
           </div>
         </div>
@@ -69,18 +69,18 @@
         <!-- Set Category/Tags Form -->
         <div v-if="selectedAction === 'category_tags'" class="space-y-4">
           <div class="flex justify-between items-center">
-            <h3 class="text-sm font-medium text-black">Set Category/Tags</h3>
-            <button @click="selectedAction = ''" class="text-xs text-gray-500 hover:text-black transition-colors cursor-pointer rounded-sm">Back</button>
+            <h3 class="text-sm font-medium text-black">Kategorie/Tags festlegen</h3>
+            <button @click="selectedAction = ''" class="text-xs text-gray-500 hover:text-black transition-colors cursor-pointer rounded-sm">Zurück</button>
           </div>
 
           <div>
-            <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Category</label>
+            <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Kategorie</label>
             <select
               v-model="form.selectedCategory"
               @change="loadTagsForCategory"
               class="w-full border border-gray-200 px-1 py-2 text-sm rounded-sm focus:outline-none focus:border-black transition-colors"
             >
-              <option value="">Select a category...</option>
+              <option value="">Kategorie wählen...</option>
               <option v-for="category in categories" :key="category.id" :value="category.id">
                 {{ category.name }}
               </option>
@@ -111,14 +111,14 @@
               @click="$emit('close')"
               class="px-4 py-2 text-sm text-gray-600 hover:text-black transition-colors cursor-pointer rounded-sm"
             >
-              Cancel
+              Abbrechen
             </button>
             <button
               @click="submit"
               :disabled="!form.selectedCategory"
               class="px-4 py-2 text-sm bg-black text-white hover:bg-gray-800 transition-colors cursor-pointer rounded-sm disabled:bg-gray-300 disabled:cursor-not-allowed"
             >
-              Save
+              Speichern
             </button>
           </div>
         </div>
@@ -126,20 +126,20 @@
         <!-- Set Type Form -->
         <div v-if="selectedAction === 'set_type'" class="space-y-4">
           <div class="flex justify-between items-center">
-            <h3 class="text-sm font-medium text-black">Set Type</h3>
-            <button @click="selectedAction = ''" class="text-xs text-gray-500 hover:text-black transition-colors cursor-pointer rounded-sm">Back</button>
+            <h3 class="text-sm font-medium text-black">Typ festlegen</h3>
+            <button @click="selectedAction = ''" class="text-xs text-gray-500 hover:text-black transition-colors cursor-pointer rounded-sm">Zurück</button>
           </div>
 
           <div>
-            <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Type</label>
+            <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Typ</label>
             <select
               v-model="form.selectedType"
               class="w-full border border-gray-200 px-1 py-2 text-sm rounded-sm focus:outline-none focus:border-black transition-colors"
             >
-              <option value="">Select a type...</option>
-              <option value="configurable">Configurable</option>
-              <option value="simple">Simple</option>
-              <option value="variations">Variations</option>
+              <option value="">Typ wählen...</option>
+              <option value="configurable">Konfigurierbar</option>
+              <option value="simple">Einfach</option>
+              <option value="variations">Varianten</option>
             </select>
           </div>
 
@@ -148,14 +148,14 @@
               @click="$emit('close')"
               class="px-4 py-2 text-sm text-gray-600 hover:text-black transition-colors cursor-pointer rounded-sm"
             >
-              Cancel
+              Abbrechen
             </button>
             <button
               @click="submit"
               :disabled="!form.selectedType"
               class="px-4 py-2 text-sm bg-black text-white hover:bg-gray-800 transition-colors cursor-pointer rounded-sm disabled:bg-gray-300 disabled:cursor-not-allowed"
             >
-              Save
+              Speichern
             </button>
           </div>
         </div>
@@ -163,12 +163,12 @@
         <!-- Mark as Done Confirmation -->
         <div v-if="selectedAction === 'mark_done'" class="space-y-4">
           <div class="flex justify-between items-center">
-            <h3 class="text-sm font-medium text-black">Mark as Done</h3>
-            <button @click="selectedAction = ''" class="text-xs text-gray-500 hover:text-black transition-colors cursor-pointer rounded-sm">Back</button>
+            <h3 class="text-sm font-medium text-black">Als erledigt markieren</h3>
+            <button @click="selectedAction = ''" class="text-xs text-gray-500 hover:text-black transition-colors cursor-pointer rounded-sm">Zurück</button>
           </div>
           <div class="bg-green-100 border border-green-300 rounded-sm p-3">
             <p class="text-sm text-black">
-              Mark {{ selectedCount }} record{{ selectedCount > 1 ? 's' : '' }} as done?
+              {{ selectedCount }} {{ selectedCount > 1 ? 'Datensätze' : 'Datensatz' }} als erledigt markieren?
             </p>
           </div>
           <div class="flex gap-3 justify-end pt-2">
@@ -176,13 +176,13 @@
               @click="$emit('close')"
               class="px-4 py-2 text-sm text-gray-600 hover:text-black transition-colors cursor-pointer rounded-sm"
             >
-              Cancel
+              Abbrechen
             </button>
             <button
               @click="submit"
               class="px-4 py-2 text-sm bg-black text-white hover:bg-gray-800 transition-colors cursor-pointer rounded-sm"
             >
-              Confirm
+              Bestätigen
             </button>
           </div>
         </div>
@@ -190,13 +190,13 @@
         <!-- Delete Confirmation -->
         <div v-if="selectedAction === 'delete'" class="space-y-4">
           <div class="flex justify-between items-center">
-            <h3 class="text-sm font-medium text-black">Delete Records</h3>
-            <button @click="selectedAction = ''" class="text-xs text-gray-500 hover:text-black transition-colors cursor-pointer rounded-sm">Back</button>
+            <h3 class="text-sm font-medium text-black">Datensätze löschen</h3>
+            <button @click="selectedAction = ''" class="text-xs text-gray-500 hover:text-black transition-colors cursor-pointer rounded-sm">Zurück</button>
           </div>
           <div class="bg-red-100 border border-red-300 rounded-sm p-3">
             <p class="text-sm text-black">
-              Are you sure you want to delete {{ selectedCount }} record{{ selectedCount > 1 ? 's' : '' }}?
-              This action cannot be undone.
+              Möchten Sie wirklich {{ selectedCount }} {{ selectedCount > 1 ? 'Datensätze' : 'Datensatz' }} löschen?
+              Diese Aktion kann nicht rückgängig gemacht werden.
             </p>
           </div>
           <div class="flex gap-3 justify-end pt-2">
@@ -204,13 +204,13 @@
               @click="$emit('close')"
               class="px-4 py-2 text-sm text-gray-600 hover:text-black transition-colors cursor-pointer rounded-sm"
             >
-              Cancel
+              Abbrechen
             </button>
             <button
               @click="submit"
               class="px-4 py-2 text-sm bg-black text-white hover:bg-gray-800 transition-colors cursor-pointer rounded-sm"
             >
-              Delete
+              Löschen
             </button>
           </div>
         </div>

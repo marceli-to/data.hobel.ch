@@ -9,8 +9,8 @@
     <!-- Header -->
     <div class="mb-8 flex justify-between items-start">
       <div>
-        <h1 class="text-2xl font-semibold text-black mb-1">Products</h1>
-        <p class="text-sm text-gray-500">{{ products.length }} items</p>
+        <h1 class="text-2xl font-semibold text-black mb-1">Produkte</h1>
+        <p class="text-sm text-gray-500">{{ products.length }} Artikel</p>
       </div>
 
       <div class="flex items-center gap-2">
@@ -29,14 +29,14 @@
           @click="multiEditLightbox = true"
           class="bg-black text-white text-sm px-3 py-2 hover:bg-gray-800 transition-colors cursor-pointer rounded-sm"
         >
-          Edit {{ visibleSelectedProducts.length }} selected
+          {{ visibleSelectedProducts.length }} ausgewählt bearbeiten
         </button>
       </div>
     </div>
 
     <!-- Loading State -->
     <div v-if="loading" class="text-center py-16 text-gray-400">
-      Loading...
+      Lädt...
     </div>
 
     <!-- Table -->
@@ -46,33 +46,33 @@
           <tr class="border-b border-gray-200">
             <th class="py-3 pr-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
               <button @click="sortBy('name')" class="uppercase cursor-pointer flex items-center gap-1 hover:text-black transition-colors">
-                Product
+                Produkt
                 <span v-if="sortColumn === 'name'" class="text-black">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
               </button>
             </th>
             <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
               <button @click="sortBy('type')" class="uppercase cursor-pointer flex items-center gap-1 hover:text-black transition-colors">
-                Type
+                Typ
                 <span v-if="sortColumn === 'type'" class="text-black">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
               </button>
             </th>
             <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">SKU</th>
             <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
               <button @click="sortBy('categories')" class="uppercase cursor-pointer flex items-center gap-1 hover:text-black transition-colors">
-                Categories
+                Kategorien
                 <span v-if="sortColumn === 'categories'" class="text-black">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
               </button>
             </th>
             <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tags</th>
             <th class="py-3 px-2 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
               <button @click="sortBy('price')" class="uppercase cursor-pointer flex items-center gap-1 ml-auto hover:text-black transition-colors">
-                Price
+                Preis
                 <span v-if="sortColumn === 'price'" class="text-black">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
               </button>
             </th>
             <th class="py-3 px-2 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
               <button @click="sortBy('variations')" class="uppercase cursor-pointer flex items-center gap-1 ml-auto hover:text-black transition-colors">
-                Variations
+                Varianten
                 <span v-if="sortColumn === 'variations'" class="text-black">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
               </button>
             </th>
@@ -147,28 +147,35 @@
               <span v-else class="text-gray-300">0</span>
             </td>
             <td class="py-4 pl-2 pr-1 text-right flex items-center justify-end gap-2">
-              <router-link
-                :to="{ name: 'products.edit', params: { id: product.id } }"
-                class="text-gray-400 hover:text-black transition-colors cursor-pointer"
-                title="Edit Product"
-              >
-                <PhPencilSimple class="w-5 h-5" />
-              </router-link>
-              <button
-                v-if="hasAnalysisComponent(product.wc_id)"
-                @click="openAnalysisLightbox(product)"
-                class="text-gray-400 hover:text-black transition-colors cursor-pointer"
-                title="Price Analysis"
-              >
-                <PhChartBar class="w-5 h-5" />
-              </button>
               <button
                 @click="remarksLightboxProduct = product"
                 class="transition-colors cursor-pointer"
                 :class="product.remarks_count > 0 ? 'text-green-500 hover:text-green-600' : 'text-gray-400 hover:text-black'"
-                title="View Remarks"
+                title="Anmerkungen anzeigen"
               >
                 <PhChatText class="w-5 h-5" />
+              </button>
+              <router-link
+                :to="{ name: 'products.edit', params: { id: product.id } }"
+                class="text-gray-400 hover:text-black transition-colors cursor-pointer"
+                title="Produkt bearbeiten"
+              >
+                <PhPencilSimple class="w-5 h-5" />
+              </router-link>
+              <!-- <button
+                v-if="hasAnalysisComponent(product.wc_id)"
+                @click="openAnalysisLightbox(product)"
+                class="text-gray-400 hover:text-black transition-colors cursor-pointer"
+                title="Preisanalyse"
+              >
+                <PhChartBar class="w-5 h-5" />
+              </button> -->
+              <button
+                @click="confirmDeleteProduct(product)"
+                class="text-gray-400 hover:text-red-500 transition-colors cursor-pointer"
+                title="Produkt löschen"
+              >
+                <PhTrash class="w-5 h-5" />
               </button>
             </td>
             <td class="py-4 pl-2 text-right">
@@ -225,6 +232,34 @@
     @remark-added="handleRemarkAdded"
     @remark-deleted="handleRemarkDeleted"
   />
+
+  <!-- Delete Confirmation Lightbox -->
+  <div
+    v-if="deleteConfirmation"
+    class="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+    @click.self="deleteConfirmation = null"
+  >
+    <div class="bg-white p-6 rounded-sm shadow-lg max-w-md w-full mx-4">
+      <h3 class="text-lg font-semibold text-black mb-4">Produkt löschen</h3>
+      <p class="text-sm text-gray-600 mb-6">
+        Sind Sie sicher, dass Sie "{{ deleteConfirmation.name }}" löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.
+      </p>
+      <div class="flex justify-end gap-3">
+        <button
+          @click="deleteConfirmation = null"
+          class="px-4 py-2 text-sm text-gray-600 hover:text-black transition-colors cursor-pointer"
+        >
+          Abbrechen
+        </button>
+        <button
+          @click="deleteProduct"
+          class="px-4 py-2 text-sm bg-red-500 text-white hover:bg-red-600 transition-colors cursor-pointer rounded-sm"
+        >
+          Löschen
+        </button>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
@@ -236,7 +271,7 @@ import PricingAnalysisLightbox from '../lightbox/PricingAnalysis.vue';
 import RemarksLightbox from '../lightbox/Remarks.vue';
 import MultiEditLightbox from '../lightbox/MultiEdit.vue';
 import FiltersLightbox from '../lightbox/Filters.vue';
-import { PhChatText, PhSquare, PhCheckSquare, PhChartBar, PhPencilSimple, PhFunnelSimple } from '@phosphor-icons/vue';
+import { PhChatText, PhSquare, PhCheckSquare, PhChartBar, PhPencilSimple, PhFunnelSimple, PhTrash } from '@phosphor-icons/vue';
 
 const allProducts = ref([]);
 const loading = ref(true);
@@ -251,6 +286,7 @@ const selectedType = ref(null);
 const selectedProducts = ref([]);
 const multiEditLightbox = ref(false);
 const filtersLightbox = ref(false);
+const deleteConfirmation = ref(null);
 
 const typeColors = {
   simple: 'bg-gray-200 text-gray-600',
@@ -406,7 +442,7 @@ const handleRemarkAdded = (productId) => {
   if (productIndex !== -1) {
     allProducts.value[productIndex].remarks_count++;
   }
-  showToast('Remark added successfully!', 'success');
+  showToast('Anmerkung erfolgreich hinzugefügt!', 'success');
 };
 
 const handleRemarkDeleted = (productId) => {
@@ -414,7 +450,7 @@ const handleRemarkDeleted = (productId) => {
   if (productIndex !== -1 && allProducts.value[productIndex].remarks_count > 0) {
     allProducts.value[productIndex].remarks_count--;
   }
-  showToast('Remark deleted successfully!', 'success');
+  showToast('Anmerkung erfolgreich gelöscht!', 'success');
 };
 
 const toggleCategory = (category) => {
@@ -471,10 +507,29 @@ const handleMultiEditSubmit = async (payload) => {
     selectedProducts.value = selectedProducts.value.filter(id => !editedIds.includes(id));
     multiEditLightbox.value = false;
 
-    showToast('Records updated successfully!', 'success');
+    showToast('Datensätze erfolgreich aktualisiert!', 'success');
   } catch (error) {
     console.error('Error updating records:', error);
-    showToast('Error updating records. Please try again.', 'error');
+    showToast('Fehler beim Aktualisieren der Datensätze. Bitte versuchen Sie es erneut.', 'error');
+  }
+};
+
+const confirmDeleteProduct = (product) => {
+  deleteConfirmation.value = product;
+};
+
+const deleteProduct = async () => {
+  if (!deleteConfirmation.value) return;
+
+  try {
+    await axios.delete(`/api/products/${deleteConfirmation.value.id}`);
+    allProducts.value = allProducts.value.filter(p => p.id !== deleteConfirmation.value.id);
+    showToast('Produkt erfolgreich gelöscht!', 'success');
+  } catch (error) {
+    console.error('Error deleting product:', error);
+    showToast('Fehler beim Löschen des Produkts. Bitte versuchen Sie es erneut.', 'error');
+  } finally {
+    deleteConfirmation.value = null;
   }
 };
 

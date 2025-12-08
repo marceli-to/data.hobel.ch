@@ -14,10 +14,12 @@ Route::middleware('web')->group(function () {
     Route::get('/products', [ProductController::class, 'index']);
     Route::get('/products/{product}', [ProductController::class, 'show']);
     Route::put('/products/{product}', [ProductController::class, 'update']);
+    Route::delete('/products/{product}', [ProductController::class, 'destroy']);
     Route::post('/products/bulk-edit', [ProductController::class, 'bulkEdit']);
 
     Route::get('/products/{product}/variations', [ProductVariationController::class, 'index']);
     Route::put('/products/{product}/variations/{variation}', [ProductVariationController::class, 'update']);
+    Route::delete('/products/{product}/variations/{variation}', [ProductVariationController::class, 'destroy']);
     Route::post('/products/{product}/variations/bulk-update', [ProductVariationController::class, 'bulkUpdate']);
 
     Route::get('/products/{product}/remarks', [ProductController::class, 'remarks']);
