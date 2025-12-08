@@ -30,7 +30,6 @@ class ProductController extends Controller
             'name' => 'sometimes|string|max:255',
             'label' => 'sometimes|nullable|string|max:255',
             'sku' => 'sometimes|nullable|string|max:255',
-            'type' => 'sometimes|in:simple,variable',
             'price' => 'sometimes|nullable|string',
         ]);
 
@@ -79,11 +78,12 @@ class ProductController extends Controller
         $validated = request()->validate([
             'product_ids' => 'required|array',
             'product_ids.*' => 'exists:products,id',
-            'action' => 'required|in:remarks,category_tags,mark_done,delete',
+            'action' => 'required|in:remarks,category_tags,set_type,mark_done,delete',
             'remarks' => 'nullable|string',
             'category_id' => 'nullable|exists:categories,id',
             'tag_ids' => 'nullable|array',
             'tag_ids.*' => 'exists:tags,id',
+            'type' => 'nullable|in:configurable,simple,variations',
         ]);
 
         $products = Product::query()->whereIn('id', $validated['product_ids'])->get();
@@ -108,6 +108,8 @@ class ProductController extends Controller
                     $product->productTags()->syncWithoutDetaching($validated['tag_ids']);
                 }
             }
+        } elseif ($validated['action'] === 'set_type') {
+            Product::query()->whereIn('id', $validated['product_ids'])->update(['type' => $validated['type']]);
         } elseif ($validated['action'] === 'mark_done') {
             Product::query()->whereIn('id', $validated['product_ids'])->update(['done_at' => now()]);
         } elseif ($validated['action'] === 'delete') {

@@ -38,6 +38,46 @@
           </div>
         </div>
 
+        <!-- Type Filter -->
+        <div>
+          <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Type (New)</label>
+          <div class="flex flex-wrap gap-2">
+            <button
+              v-for="type in newTypes"
+              :key="type.value"
+              @click="toggleType(type.value)"
+              :class="[
+                'px-2 py-2 text-xs transition-colors cursor-pointer rounded-sm',
+                selectedType === type.value
+                  ? 'bg-black text-white'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+              ]"
+            >
+              {{ type.label }}
+            </button>
+          </div>
+        </div>
+
+        <!-- Old Type Filter -->
+        <div>
+          <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Type (Old)</label>
+          <div class="flex flex-wrap gap-2">
+            <button
+              v-for="type in oldTypes"
+              :key="type.value"
+              @click="toggleType(type.value)"
+              :class="[
+                'px-2 py-2 text-xs transition-colors cursor-pointer rounded-sm',
+                selectedType === type.value
+                  ? 'bg-black text-white'
+                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+              ]"
+            >
+              {{ type.label }}
+            </button>
+          </div>
+        </div>
+
         <!-- Category Filter -->
         <div>
           <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Category</label>
@@ -61,7 +101,7 @@
 
       <div class="p-4 border-t border-gray-200 flex gap-3 justify-between">
         <button
-          v-if="selectedCategories.length > 0 || selectedState"
+          v-if="selectedCategories.length > 0 || selectedState || selectedType"
           @click="clearFilters"
           class="px-4 py-2 text-sm text-gray-600 hover:text-black transition-colors cursor-pointer rounded-sm"
         >
@@ -98,14 +138,29 @@ const props = defineProps({
   selectedState: {
     type: String,
     default: null
+  },
+  selectedType: {
+    type: String,
+    default: null
   }
 });
 
-const emit = defineEmits(['close', 'toggle-category', 'toggle-state', 'clear-filters']);
+const emit = defineEmits(['close', 'toggle-category', 'toggle-state', 'toggle-type', 'clear-filters']);
 
 const states = [
   { value: 'pending', label: 'Pending' },
   { value: 'done', label: 'Done' }
+];
+
+const newTypes = [
+  { value: 'configurable', label: 'Configurable' },
+  { value: 'simple', label: 'Simple' },
+  { value: 'variations', label: 'Variations' }
+];
+
+const oldTypes = [
+  { value: 'old_simple', label: 'Simple' },
+  { value: 'old_variable', label: 'Variable' }
 ];
 
 const toggleCategory = (category) => {
@@ -114,6 +169,10 @@ const toggleCategory = (category) => {
 
 const toggleState = (state) => {
   emit('toggle-state', state);
+};
+
+const toggleType = (type) => {
+  emit('toggle-type', type);
 };
 
 const clearFilters = () => {

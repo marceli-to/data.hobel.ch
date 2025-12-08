@@ -5,7 +5,7 @@
     :type="toast.type"
   />
 
-  <div class="flex-1 container mx-auto p-6">
+  <div class="flex-1 container mx-auto py-6">
     <!-- Header -->
     <div class="mb-8 flex justify-between items-start">
       <div>
@@ -20,8 +20,8 @@
         >
           <PhFunnelSimple class="w-4 h-4" />
           Filter
-          <span v-if="selectedCategories.length > 0 || selectedState" class="bg-black text-white text-xs p-1 w-5 h-5 leading-none rounded-full">
-            {{ selectedCategories.length + (selectedState ? 1 : 0) }}
+          <span v-if="selectedCategories.length > 0 || selectedState || selectedType" class="bg-black text-white text-xs p-1 w-5 h-5 leading-none rounded-full">
+            {{ selectedCategories.length + (selectedState ? 1 : 0) + (selectedType ? 1 : 0) }}
           </span>
         </button>
         <button
@@ -42,10 +42,20 @@
     <!-- Table -->
     <div v-else class="overflow-auto">
       <table class="w-full">
-        <thead class="sticky top-0 bg-gray-50 z-10">
+        <thead>
           <tr class="border-b border-gray-200">
-            <th class="py-3 pr-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Product</th>
-            <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
+            <th class="py-3 pr-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <button @click="sortBy('name')" class="uppercase cursor-pointer flex items-center gap-1 hover:text-black transition-colors">
+                Product
+                <span v-if="sortColumn === 'name'" class="text-black">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
+              </button>
+            </th>
+            <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <button @click="sortBy('type')" class="uppercase cursor-pointer flex items-center gap-1 hover:text-black transition-colors">
+                Type
+                <span v-if="sortColumn === 'type'" class="text-black">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
+              </button>
+            </th>
             <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">SKU</th>
             <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
               <button @click="sortBy('categories')" class="uppercase cursor-pointer flex items-center gap-1 hover:text-black transition-colors">
@@ -54,7 +64,12 @@
               </button>
             </th>
             <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tags</th>
-            <th class="py-3 px-2 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Price</th>
+            <th class="py-3 px-2 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <button @click="sortBy('price')" class="uppercase cursor-pointer flex items-center gap-1 ml-auto hover:text-black transition-colors">
+                Price
+                <span v-if="sortColumn === 'price'" class="text-black">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
+              </button>
+            </th>
             <th class="py-3 px-2 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
               <button @click="sortBy('variations')" class="uppercase cursor-pointer flex items-center gap-1 ml-auto hover:text-black transition-colors">
                 Variations
@@ -97,7 +112,7 @@
             <td class="py-4 px-2">
               <span
                 class="inline-block px-1 py-1 rounded-sm text-xs leading-none"
-                :class="product.type === 'simple' ? 'bg-gray-200 text-gray-600' : 'bg-black text-white'"
+                :class="typeColors[product.type]"
               >
                 {{ product.type }}
               </span>
@@ -174,9 +189,11 @@
     :categories="categories"
     :selected-categories="selectedCategories"
     :selected-state="selectedState"
+    :selected-type="selectedType"
     @close="filtersLightbox = false"
     @toggle-category="toggleCategory"
     @toggle-state="toggleState"
+    @toggle-type="toggleType"
     @clear-filters="clearFilters"
   />
 
@@ -230,9 +247,17 @@ const analysisLightboxProduct = ref(null);
 const remarksLightboxProduct = ref(null);
 const selectedCategories = ref([]);
 const selectedState = ref(null);
+const selectedType = ref(null);
 const selectedProducts = ref([]);
 const multiEditLightbox = ref(false);
 const filtersLightbox = ref(false);
+
+const typeColors = {
+  simple: 'bg-gray-200 text-gray-600',
+  variable: 'bg-yellow-200 text-yellow-800',
+  configurable: 'bg-blue-200 text-blue-800',
+  variations: 'bg-green-200 text-green-800',
+};
 
 const toast = ref({
   show: false,
@@ -282,6 +307,17 @@ const products = computed(() => {
     });
   }
 
+  // Filter by type
+  if (selectedType.value) {
+    // Map old type filter values to actual database values
+    const typeMap = {
+      'old_simple': 'simple',
+      'old_variable': 'variable'
+    };
+    const actualType = typeMap[selectedType.value] || selectedType.value;
+    filtered = filtered.filter(product => product.type === actualType);
+  }
+
   if (!sortColumn.value) {
     return filtered;
   }
@@ -289,9 +325,18 @@ const products = computed(() => {
   const sorted = [...filtered].sort((a, b) => {
     let aVal, bVal;
 
-    if (sortColumn.value === 'categories') {
+    if (sortColumn.value === 'name') {
+      aVal = a.name || '';
+      bVal = b.name || '';
+    } else if (sortColumn.value === 'type') {
+      aVal = a.type || '';
+      bVal = b.type || '';
+    } else if (sortColumn.value === 'categories') {
       aVal = a.product_categories?.map(c => c.name).join(', ') || '';
       bVal = b.product_categories?.map(c => c.name).join(', ') || '';
+    } else if (sortColumn.value === 'price') {
+      aVal = parseFloat(a.price) || 0;
+      bVal = parseFloat(b.price) || 0;
     } else if (sortColumn.value === 'variations') {
       aVal = a.variations_count || 0;
       bVal = b.variations_count || 0;
@@ -385,9 +430,14 @@ const toggleState = (state) => {
   selectedState.value = selectedState.value === state ? null : state;
 };
 
+const toggleType = (type) => {
+  selectedType.value = selectedType.value === type ? null : type;
+};
+
 const clearFilters = () => {
   selectedCategories.value = [];
   selectedState.value = null;
+  selectedType.value = null;
 };
 
 const toggleProductSelection = (productId) => {

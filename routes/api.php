@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ProductVariationController;
+use App\Http\Controllers\Api\WoodTypeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,4 +26,10 @@ Route::middleware('web')->group(function () {
 
     Route::get('/categories', [\App\Http\Controllers\Api\CategoryController::class, 'index']);
     Route::get('/categories/{category}/tags', [\App\Http\Controllers\Api\CategoryController::class, 'tags']);
+
+    Route::get('/wood-types', [WoodTypeController::class, 'index']);
+    Route::get('/wood-types/{woodType}', [WoodTypeController::class, 'show']);
+    Route::post('/wood-types', [WoodTypeController::class, 'store']);
+    Route::put('/wood-types/{woodType}', [WoodTypeController::class, 'update']);
+    Route::delete('/wood-types/{woodType}', [WoodTypeController::class, 'destroy']);
 });

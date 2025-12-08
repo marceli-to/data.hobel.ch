@@ -53,7 +53,7 @@
         </div>
 
         <!-- Type -->
-        <div>
+        <!-- <div>
           <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Type</label>
           <select
             v-model="product.type"
@@ -62,7 +62,7 @@
             <option value="simple">Simple</option>
             <option value="variable">Variable</option>
           </select>
-        </div>
+        </div> -->
 
         <!-- Price -->
         <div>

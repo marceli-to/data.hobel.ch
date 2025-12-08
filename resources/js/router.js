@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import ProductsTable from './components/products/Table.vue';
 import ProductsForm from './components/products/Form.vue';
+import WoodTypesTable from './components/wood-types/Table.vue';
+import WoodTypesForm from './components/wood-types/Form.vue';
 
 const routes = [
   {
@@ -21,6 +23,21 @@ const routes = [
     path: '/products/create',
     name: 'products.create',
     component: ProductsForm
+  },
+  {
+    path: '/wood-types',
+    name: 'wood-types.index',
+    component: WoodTypesTable
+  },
+  {
+    path: '/wood-types/:id/edit',
+    name: 'wood-types.edit',
+    component: WoodTypesForm
+  },
+  {
+    path: '/wood-types/create',
+    name: 'wood-types.create',
+    component: WoodTypesForm
   }
 ];
 

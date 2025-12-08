@@ -18,7 +18,7 @@
         </button>
       </div>
 
-      <div class="overflow-y-auto flex-1 p-6">
+      <div class="overflow-y-auto flex-1 p-4">
         <!-- Action Selector -->
         <div v-if="!selectedAction">
           <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Action</label>
@@ -29,6 +29,7 @@
             <option value="">Select an action...</option>
             <option value="remarks">Add Remarks</option>
             <option value="category_tags">Set Category/Tags</option>
+            <option value="set_type">Set type</option>
             <option value="mark_done">Mark as done</option>
             <option value="delete">Delete</option>
           </select>
@@ -115,6 +116,43 @@
             <button
               @click="submit"
               :disabled="!form.selectedCategory"
+              class="px-4 py-2 text-sm bg-black text-white hover:bg-gray-800 transition-colors cursor-pointer rounded-sm disabled:bg-gray-300 disabled:cursor-not-allowed"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+
+        <!-- Set Type Form -->
+        <div v-if="selectedAction === 'set_type'" class="space-y-4">
+          <div class="flex justify-between items-center">
+            <h3 class="text-sm font-medium text-black">Set Type</h3>
+            <button @click="selectedAction = ''" class="text-xs text-gray-500 hover:text-black transition-colors cursor-pointer rounded-sm">Back</button>
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Type</label>
+            <select
+              v-model="form.selectedType"
+              class="w-full border border-gray-200 px-1 py-2 text-sm rounded-sm focus:outline-none focus:border-black transition-colors"
+            >
+              <option value="">Select a type...</option>
+              <option value="configurable">Configurable</option>
+              <option value="simple">Simple</option>
+              <option value="variations">Variations</option>
+            </select>
+          </div>
+
+          <div class="flex gap-3 justify-end pt-2">
+            <button
+              @click="$emit('close')"
+              class="px-4 py-2 text-sm text-gray-600 hover:text-black transition-colors cursor-pointer rounded-sm"
+            >
+              Cancel
+            </button>
+            <button
+              @click="submit"
+              :disabled="!form.selectedType"
               class="px-4 py-2 text-sm bg-black text-white hover:bg-gray-800 transition-colors cursor-pointer rounded-sm disabled:bg-gray-300 disabled:cursor-not-allowed"
             >
               Save
@@ -210,6 +248,7 @@ const form = ref({
   remarks: '',
   selectedCategory: '',
   selectedTags: [],
+  selectedType: '',
 });
 
 const resetForm = () => {
@@ -218,6 +257,7 @@ const resetForm = () => {
     remarks: '',
     selectedCategory: '',
     selectedTags: [],
+    selectedType: '',
   };
   tags.value = [];
 };
@@ -257,6 +297,8 @@ const submit = () => {
   } else if (selectedAction.value === 'category_tags') {
     payload.category_id = form.value.selectedCategory;
     payload.tag_ids = form.value.selectedTags;
+  } else if (selectedAction.value === 'set_type') {
+    payload.type = form.value.selectedType;
   }
 
   emit('submit', payload);
