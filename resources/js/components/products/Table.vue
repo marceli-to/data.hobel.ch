@@ -5,7 +5,7 @@
     :type="toast.type"
   />
 
-  <div class="flex-1 container mx-auto py-6 px-4">
+  <div class="flex-1 container mx-auto p-6">
     <!-- Header -->
     <div class="mb-8 flex justify-between items-start">
       <div>
