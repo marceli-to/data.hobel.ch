@@ -19,7 +19,7 @@ class ProductController extends Controller
 
     public function show(Product $product): JsonResponse
     {
-        $product->load(['images', 'productCategories', 'productTags']);
+        $product->load(['images', 'productCategories', 'productTags', 'shippingMethods', 'productAttributes']);
         
         return response()->json($product);
     }
@@ -30,12 +30,39 @@ class ProductController extends Controller
             'name' => 'sometimes|string|max:255',
             'label' => 'sometimes|nullable|string|max:255',
             'sku' => 'sometimes|nullable|string|max:255',
+            'description' => 'sometimes|nullable|string',
             'price' => 'sometimes|nullable|string',
+            'delivery_time' => 'sometimes|nullable|string|max:255',
+            'shipping_method_ids' => 'sometimes|array',
+            'shipping_method_ids.*' => 'exists:shipping_methods,id',
+            'product_attributes' => 'sometimes|array',
+            'product_attributes.*.description' => 'required|string|max:255',
         ]);
+
+        // Extract shipping method IDs and attributes before updating product
+        $shippingMethodIds = $validated['shipping_method_ids'] ?? null;
+        $productAttributes = $validated['product_attributes'] ?? null;
+        unset($validated['shipping_method_ids'], $validated['product_attributes']);
 
         $product->update($validated);
 
-        return response()->json($product);
+        // Sync shipping methods if provided
+        if ($shippingMethodIds !== null) {
+            $product->shippingMethods()->sync($shippingMethodIds);
+        }
+
+        // Sync product attributes if provided
+        if ($productAttributes !== null) {
+            $product->productAttributes()->delete();
+            foreach ($productAttributes as $position => $attr) {
+                $product->productAttributes()->create([
+                    'description' => $attr['description'],
+                    'position' => $position,
+                ]);
+            }
+        }
+
+        return response()->json($product->load(['shippingMethods', 'productAttributes']));
     }
 
     public function destroy(Product $product): JsonResponse

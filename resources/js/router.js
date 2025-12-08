@@ -5,6 +5,8 @@ import WoodTypesTable from './components/wood-types/Table.vue';
 import WoodTypesForm from './components/wood-types/Form.vue';
 import CategoriesTable from './components/categories/Table.vue';
 import CategoriesForm from './components/categories/Form.vue';
+import ShippingMethodsTable from './components/shipping-methods/Table.vue';
+import ShippingMethodsForm from './components/shipping-methods/Form.vue';
 
 const routes = [
   {
@@ -55,6 +57,21 @@ const routes = [
     path: '/categories/create',
     name: 'categories.create',
     component: CategoriesForm
+  },
+  {
+    path: '/shipping-methods',
+    name: 'shipping-methods.index',
+    component: ShippingMethodsTable
+  },
+  {
+    path: '/shipping-methods/:id/edit',
+    name: 'shipping-methods.edit',
+    component: ShippingMethodsForm
+  },
+  {
+    path: '/shipping-methods/create',
+    name: 'shipping-methods.create',
+    component: ShippingMethodsForm
   }
 ];
 

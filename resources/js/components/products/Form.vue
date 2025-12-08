@@ -52,6 +52,64 @@
           />
         </div>
 
+        <!-- Description -->
+        <div>
+          <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Beschreibung</label>
+          <textarea
+            v-model="product.description"
+            rows="12"
+            class="w-full border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors rounded-sm resize-y"
+          ></textarea>
+        </div>
+
+        <!-- Product Attributes -->
+        <div>
+          <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Attribute</label>
+          <div class="space-y-2">
+            <draggable
+              v-model="productAttributes"
+              item-key="id"
+              handle=".drag-handle"
+              ghost-class="opacity-50"
+              class="space-y-2"
+            >
+              <template #item="{ element: attr, index }">
+                <div class="flex items-center gap-1">
+                  <button
+                    type="button"
+                    class="drag-handle text-gray-600 hover:text-gray-500 cursor-grab active:cursor-grabbing p-0.5"
+                    title="Ziehen zum Sortieren"
+                  >
+                    <PhDotsSixVertical class="w-4 h-4" />
+                  </button>
+                  <input
+                    v-model="attr.description"
+                    type="text"
+                    class="flex-1 border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors rounded-sm"
+                    placeholder="z.B. Material: Eiche massiv"
+                  />
+                  <button
+                    type="button"
+                    @click="removeAttribute(index)"
+                    class="text-gray-400 hover:text-red-500 transition-colors cursor-pointer p-2"
+                    title="Attribut entfernen"
+                  >
+                    <PhX class="w-4 h-4" />
+                  </button>
+                </div>
+              </template>
+            </draggable>
+            <button
+              type="button"
+              @click="addAttribute"
+              class="text-sm text-gray-500 hover:text-black transition-colors cursor-pointer flex items-center gap-1"
+            >
+              <PhPlus class="w-4 h-4" />
+              Hinzufügen
+            </button>
+          </div>
+        </div>
+
         <!-- Type -->
         <!-- <div>
           <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Type</label>
@@ -72,6 +130,41 @@
             type="text"
             class="w-full border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors rounded-sm"
           />
+        </div>
+
+        <!-- Delivery Time -->
+        <div>
+          <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Lieferzeit</label>
+          <input
+            v-model="product.delivery_time"
+            type="text"
+            class="w-full border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors rounded-sm"
+            placeholder="z.B. 2-3 Wochen"
+          />
+        </div>
+
+        <!-- Shipping Methods -->
+        <div v-if="shippingMethods.length > 0">
+          <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Versandarten</label>
+          <div class="">
+            <label
+              v-for="method in shippingMethods"
+              :key="method.id"
+              class="flex items-center gap-2 cursor-pointer rounded-sm px-2 py-1.5"
+            >
+              <input
+                type="checkbox"
+                :value="method.id"
+                v-model="selectedShippingMethods"
+                class="w-[0.875rem] h-[0.875rem] cursor-pointer accent-black"
+              />
+              <span class="text-sm text-gray-700">
+                {{ method.name }}
+                <span v-if="method.price"> – {{ method.price }}</span>
+              </span>
+             
+            </label>
+          </div>
         </div>
 
         <!-- Actions -->
@@ -217,7 +310,8 @@
 import { ref, computed, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import axios from 'axios';
-import { PhArrowLeft, PhPencilSimple, PhSquare, PhCheckSquare, PhTrash } from '@phosphor-icons/vue';
+import { PhArrowLeft, PhPencilSimple, PhSquare, PhCheckSquare, PhTrash, PhX, PhPlus, PhDotsSixVertical } from '@phosphor-icons/vue';
+import draggable from 'vuedraggable';
 import VariationEditLightbox from '../lightbox/VariationEdit.vue';
 import VariationMultiEditLightbox from '../lightbox/VariationMultiEdit.vue';
 
@@ -226,6 +320,10 @@ const router = useRouter();
 
 const product = ref(null);
 const variations = ref([]);
+const shippingMethods = ref([]);
+const selectedShippingMethods = ref([]);
+const productAttributes = ref([]);
+let attributeIdCounter = 0;
 const loading = ref(true);
 const saving = ref(false);
 const editingVariation = ref(null);
@@ -234,6 +332,15 @@ const showMultiEdit = ref(false);
 const deleteVariationConfirmation = ref(null);
 
 const isEditing = computed(() => !!route.params.id);
+
+const fetchShippingMethods = async () => {
+  try {
+    const response = await axios.get('/api/shipping-methods');
+    shippingMethods.value = response.data;
+  } catch (error) {
+    console.error('Error fetching shipping methods:', error);
+  }
+};
 
 const fetchProduct = async () => {
   if (!route.params.id) {
@@ -250,6 +357,17 @@ const fetchProduct = async () => {
   try {
     const response = await axios.get(`/api/products/${route.params.id}`);
     product.value = response.data;
+    // Set selected shipping methods from product data
+    if (product.value.shipping_methods) {
+      selectedShippingMethods.value = product.value.shipping_methods.map(m => m.id);
+    }
+    // Set product attributes from product data
+    if (product.value.product_attributes) {
+      productAttributes.value = product.value.product_attributes.map(a => ({ 
+        id: ++attributeIdCounter, 
+        description: a.description 
+      }));
+    }
     await fetchVariations();
   } catch (error) {
     console.error('Error fetching product:', error);
@@ -316,13 +434,28 @@ const deleteVariation = async () => {
   }
 };
 
+const addAttribute = () => {
+  productAttributes.value.push({ id: ++attributeIdCounter, description: '' });
+};
+
+const removeAttribute = (index) => {
+  productAttributes.value.splice(index, 1);
+};
+
 const saveProduct = async () => {
   saving.value = true;
   try {
+    // Filter out empty attributes
+    const filteredAttributes = productAttributes.value.filter(a => a.description.trim());
+    const payload = {
+      ...product.value,
+      shipping_method_ids: selectedShippingMethods.value,
+      product_attributes: filteredAttributes
+    };
     if (isEditing.value) {
-      await axios.put(`/api/products/${route.params.id}`, product.value);
+      await axios.put(`/api/products/${route.params.id}`, payload);
     } else {
-      await axios.post('/api/products', product.value);
+      await axios.post('/api/products', payload);
     }
     router.push({ name: 'products.index' });
   } catch (error) {
@@ -333,6 +466,7 @@ const saveProduct = async () => {
 };
 
 onMounted(() => {
+  fetchShippingMethods();
   fetchProduct();
 });
 </script>

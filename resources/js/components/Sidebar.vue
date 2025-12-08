@@ -43,6 +43,16 @@
             Kategorien
           </router-link>
         </li>
+        <li>
+          <router-link
+            :to="{ name: 'shipping-methods.index' }"
+            class="flex items-center gap-3 p-4 text-sm transition-colors"
+            :class="isActive('shipping-methods') ? 'bg-gray-100' : 'text-gray-700 hover:bg-gray-200'"
+          >
+            <PhTruck class="w-5 h-5" />
+            Versandarten
+          </router-link>
+        </li>
       </ul>
     </nav>
   </aside>
@@ -50,7 +60,7 @@
 
 <script setup>
 import { useRoute } from 'vue-router';
-import { PhPackage, PhTree, PhFolders } from '@phosphor-icons/vue';
+import { PhPackage, PhTree, PhFolders, PhTruck } from '@phosphor-icons/vue';
 
 const route = useRoute();
 

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ProductVariationController;
+use App\Http\Controllers\Api\ShippingMethodController;
 use App\Http\Controllers\Api\WoodTypeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -43,4 +44,10 @@ Route::middleware('web')->group(function () {
     Route::post('/wood-types', [WoodTypeController::class, 'store']);
     Route::put('/wood-types/{woodType}', [WoodTypeController::class, 'update']);
     Route::delete('/wood-types/{woodType}', [WoodTypeController::class, 'destroy']);
+
+    Route::get('/shipping-methods', [ShippingMethodController::class, 'index']);
+    Route::get('/shipping-methods/{shippingMethod}', [ShippingMethodController::class, 'show']);
+    Route::post('/shipping-methods', [ShippingMethodController::class, 'store']);
+    Route::put('/shipping-methods/{shippingMethod}', [ShippingMethodController::class, 'update']);
+    Route::delete('/shipping-methods/{shippingMethod}', [ShippingMethodController::class, 'destroy']);
 });

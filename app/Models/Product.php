@@ -18,12 +18,12 @@ class Product extends Model
         'type',
         'sku',
         'name',
-        'short_description',
         'description',
         'published',
         'featured',
         'visibility',
         'price',
+        'delivery_time',
         'in_stock',
         'stock',
         'weight',
@@ -69,5 +69,15 @@ class Product extends Model
     public function remarks(): HasMany
     {
         return $this->hasMany(Remark::class);
+    }
+
+    public function shippingMethods(): BelongsToMany
+    {
+        return $this->belongsToMany(ShippingMethod::class);
+    }
+
+    public function productAttributes(): HasMany
+    {
+        return $this->hasMany(ProductAttribute::class)->orderBy('position');
     }
 }

@@ -129,8 +129,7 @@ class ImportData extends Command
             'type' => 'simple',
             'sku' => $data['Artikelnummer'] ?: null,
             'name' => $this->cleanName($data['Name']),
-            'short_description' => $data['Kurzbeschreibung'] ?: null,
-            'description' => $data['Beschreibung'] ?: null,
+            'description' => $this->cleanDescription($data['Kurzbeschreibung'] ?: $data['Beschreibung'] ?: null),
             'published' => $data['Veröffentlicht'] == '1',
             'featured' => $data['Ist hervorgehoben?'] == '1',
             'visibility' => $data['Sichtbarkeit im Katalog'] ?: 'visible',
@@ -168,8 +167,7 @@ class ImportData extends Command
             'type' => 'variable',
             'sku' => $data['Artikelnummer'] ?: null,
             'name' => $this->cleanName($data['Name']),
-            'short_description' => $data['Kurzbeschreibung'] ?: null,
-            'description' => $data['Beschreibung'] ?: null,
+            'description' => $this->cleanDescription($data['Kurzbeschreibung'] ?: $data['Beschreibung'] ?: null),
             'published' => $data['Veröffentlicht'] == '1',
             'featured' => $data['Ist hervorgehoben?'] == '1',
             'visibility' => $data['Sichtbarkeit im Katalog'] ?: 'visible',
@@ -258,5 +256,46 @@ class ImportData extends Command
         $name = preg_replace('/\s+/', ' ', $name);
 
         return trim($name);
+    }
+
+    private function cleanDescription(?string $description): ?string
+    {
+        if (empty($description)) {
+            return null;
+        }
+
+        // Replace literal \n with actual newlines
+        $description = str_replace('\n', "\n", $description);
+
+        // Replace <br>, <br/>, <br /> with newlines
+        $description = preg_replace('/<br\s*\/?>/i', "\n", $description);
+
+        // Replace closing block tags with newlines (div, p, etc.)
+        $description = preg_replace('/<\/(div|p|li|tr)>/i', "\n", $description);
+
+        // Replace <strong> and <b> tags - keep content
+        $description = preg_replace('/<\/?(?:strong|b)>/i', '', $description);
+
+        // Remove all remaining HTML tags
+        $description = strip_tags($description);
+
+        // Decode HTML entities
+        $description = html_entity_decode($description, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+
+        // Replace multiple consecutive newlines with double newline
+        $description = preg_replace('/\n{3,}/', "\n\n", $description);
+
+        // Replace multiple spaces (but not newlines) with single space
+        $description = preg_replace('/[^\S\n]+/', ' ', $description);
+
+        // Trim each line
+        $lines = explode("\n", $description);
+        $lines = array_map('trim', $lines);
+        $description = implode("\n", $lines);
+
+        // Remove empty lines at start and end
+        $description = trim($description);
+
+        return $description ?: null;
     }
 }
