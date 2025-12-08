@@ -58,6 +58,11 @@ class CategoryController extends Controller
 
     public function destroy(Category $category): JsonResponse
     {
+        // Detach all products first
+        $category->products()->detach();
+        // Delete associated tags
+        $category->tags()->delete();
+
         $category->delete();
 
         return response()->json(['message' => 'Category deleted']);
@@ -110,6 +115,9 @@ class CategoryController extends Controller
         if ($tag->category_id !== $category->id) {
             return response()->json(['error' => 'Tag does not belong to this category'], 403);
         }
+
+        // Detach all products first
+        $tag->products()->detach();
 
         $tag->delete();
 

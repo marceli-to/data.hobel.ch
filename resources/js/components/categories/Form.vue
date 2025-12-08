@@ -60,7 +60,7 @@
             class="px-3 py-1.5 text-sm bg-black text-white hover:bg-gray-800 transition-colors cursor-pointer rounded-sm flex items-center gap-1"
           >
             <PhPlus class="w-4 h-4" />
-            Tag hinzufügen
+            Hinzufügen
           </button>
         </div>
 
