@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ProductVariationController;
 use App\Http\Controllers\Api\WoodTypeController;
@@ -26,8 +27,16 @@ Route::middleware('web')->group(function () {
     Route::post('/products/{product}/remarks', [ProductController::class, 'storeRemark']);
     Route::delete('/products/{product}/remarks/{remark}', [ProductController::class, 'destroyRemark']);
 
-    Route::get('/categories', [\App\Http\Controllers\Api\CategoryController::class, 'index']);
-    Route::get('/categories/{category}/tags', [\App\Http\Controllers\Api\CategoryController::class, 'tags']);
+    Route::get('/categories', [CategoryController::class, 'index']);
+    Route::get('/categories/{category}', [CategoryController::class, 'show']);
+    Route::post('/categories', [CategoryController::class, 'store']);
+    Route::put('/categories/{category}', [CategoryController::class, 'update']);
+    Route::delete('/categories/{category}', [CategoryController::class, 'destroy']);
+
+    Route::get('/categories/{category}/tags', [CategoryController::class, 'tags']);
+    Route::post('/categories/{category}/tags', [CategoryController::class, 'storeTag']);
+    Route::put('/categories/{category}/tags/{tag}', [CategoryController::class, 'updateTag']);
+    Route::delete('/categories/{category}/tags/{tag}', [CategoryController::class, 'destroyTag']);
 
     Route::get('/wood-types', [WoodTypeController::class, 'index']);
     Route::get('/wood-types/{woodType}', [WoodTypeController::class, 'show']);

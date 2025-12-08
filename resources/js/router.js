@@ -3,6 +3,8 @@ import ProductsTable from './components/products/Table.vue';
 import ProductsForm from './components/products/Form.vue';
 import WoodTypesTable from './components/wood-types/Table.vue';
 import WoodTypesForm from './components/wood-types/Form.vue';
+import CategoriesTable from './components/categories/Table.vue';
+import CategoriesForm from './components/categories/Form.vue';
 
 const routes = [
   {
@@ -38,6 +40,21 @@ const routes = [
     path: '/wood-types/create',
     name: 'wood-types.create',
     component: WoodTypesForm
+  },
+  {
+    path: '/categories',
+    name: 'categories.index',
+    component: CategoriesTable
+  },
+  {
+    path: '/categories/:id/edit',
+    name: 'categories.edit',
+    component: CategoriesForm
+  },
+  {
+    path: '/categories/create',
+    name: 'categories.create',
+    component: CategoriesForm
   }
 ];
 
