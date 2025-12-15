@@ -143,6 +143,17 @@
           />
         </div>
 
+        <!-- Stock -->
+        <div>
+          <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Lagerbestand</label>
+          <input
+            v-model="product.stock"
+            type="number"
+            class="w-full border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors rounded-sm"
+            placeholder="0"
+          />
+        </div>
+
         <!-- Shipping Methods -->
         <div v-if="shippingMethods.length > 0">
           <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Versandarten</label>
@@ -205,6 +216,7 @@
                 <th class="py-3 pr-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Bezeichnung</th>
                 <th class="py-3 px-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">SKU</th>
                 <th class="py-3 px-2 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Preis</th>
+                <th class="py-3 px-2 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Lagerbestand</th>
                 <th class="py-3 pl-2 text-right text-xs font-medium text-gray-500 uppercase tracking-wider w-20"></th>
                 <th class="py-3 pl-2 text-right text-xs font-medium text-gray-500 uppercase tracking-wider w-10">
                   <button @click="toggleAllVariations" class="text-gray-400 hover:text-black transition-colors cursor-pointer">
@@ -226,6 +238,9 @@
                 <td class="py-3 px-2 text-sm text-gray-500">{{ variation.sku || '—' }}</td>
                 <td class="py-3 px-2 text-sm text-right text-gray-900 tabular-nums">
                   {{ variation.price ? variation.price : '—' }}
+                </td>
+                <td class="py-3 px-2 text-sm text-right text-gray-900 tabular-nums">
+                  {{ variation.stock ?? '—' }}
                 </td>
                 <td class="py-3 pl-2 text-right">
                   <div class="flex items-center justify-end gap-2">

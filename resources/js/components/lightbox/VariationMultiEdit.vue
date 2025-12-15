@@ -63,6 +63,17 @@
               class="w-full border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors rounded-sm"
             />
           </div>
+
+          <!-- Stock -->
+          <div>
+            <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Lagerbestand</label>
+            <input
+              v-model="form.stock"
+              type="number"
+              placeholder="Leer lassen um aktuellen Wert beizubehalten"
+              class="w-full border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors rounded-sm"
+            />
+          </div>
         </form>
       </div>
 
@@ -111,14 +122,15 @@ const form = ref({
   name: '',
   label: '',
   sku: '',
-  price: ''
+  price: '',
+  stock: null
 });
 const saving = ref(false);
 
 const selectedCount = computed(() => props.selectedVariationIds.length);
 
 const hasChanges = computed(() => {
-  return form.value.name || form.value.label || form.value.sku || form.value.price;
+  return form.value.name || form.value.label || form.value.sku || form.value.price || form.value.stock !== null;
 });
 
 const submit = async () => {
@@ -131,6 +143,7 @@ const submit = async () => {
     if (form.value.label) updates.label = form.value.label;
     if (form.value.sku) updates.sku = form.value.sku;
     if (form.value.price) updates.price = form.value.price;
+    if (form.value.stock !== null) updates.stock = form.value.stock;
 
     await axios.post(`/api/products/${props.productId}/variations/bulk-update`, {
       variation_ids: props.selectedVariationIds,
@@ -138,7 +151,7 @@ const submit = async () => {
     });
 
     // Reset form
-    form.value = { name: '', label: '', sku: '', price: '' };
+    form.value = { name: '', label: '', sku: '', price: '', stock: null };
     
     emit('saved');
     emit('close');

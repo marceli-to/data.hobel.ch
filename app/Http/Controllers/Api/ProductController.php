@@ -32,6 +32,7 @@ class ProductController extends Controller
             'sku' => 'sometimes|nullable|string|max:255',
             'description' => 'sometimes|nullable|string',
             'price' => 'sometimes|nullable|string',
+            'stock' => 'sometimes|nullable|integer',
             'delivery_time' => 'sometimes|nullable|string|max:255',
             'shipping_method_ids' => 'sometimes|array',
             'shipping_method_ids.*' => 'exists:shipping_methods,id',

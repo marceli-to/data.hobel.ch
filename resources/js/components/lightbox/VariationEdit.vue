@@ -59,6 +59,16 @@
               class="w-full border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors rounded-sm"
             />
           </div>
+
+          <!-- Stock -->
+          <div>
+            <label class="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-2">Lagerbestand</label>
+            <input
+              v-model="form.stock"
+              type="number"
+              class="w-full border border-gray-200 px-3 py-2 text-sm focus:outline-none focus:border-black transition-colors rounded-sm"
+            />
+          </div>
         </form>
       </div>
 
@@ -103,7 +113,8 @@ const form = ref({
   name: '',
   label: '',
   sku: '',
-  price: ''
+  price: '',
+  stock: null
 });
 const saving = ref(false);
 
@@ -126,7 +137,8 @@ watch(() => props.variation, (newVariation) => {
       name: newVariation.name || '',
       label: newVariation.label || '',
       sku: newVariation.sku || '',
-      price: newVariation.price || ''
+      price: newVariation.price || '',
+      stock: newVariation.stock ?? null
     };
   }
 }, { immediate: true });

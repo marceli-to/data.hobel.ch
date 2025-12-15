@@ -29,6 +29,7 @@ class ProductVariationController extends Controller
             'label' => 'sometimes|nullable|string|max:255',
             'sku' => 'sometimes|nullable|string|max:255',
             'price' => 'sometimes|nullable|string',
+            'stock' => 'sometimes|nullable|integer',
         ]);
 
         $variation->update($validated);
@@ -46,11 +47,14 @@ class ProductVariationController extends Controller
             'updates.label' => 'sometimes|string|max:255',
             'updates.sku' => 'sometimes|string|max:255',
             'updates.price' => 'sometimes|string',
+            'updates.stock' => 'sometimes|nullable|integer',
         ]);
 
-        $product->variations()
-            ->whereIn('id', $validated['variation_ids'])
-            ->update($validated['updates']);
+        if (!empty($validated['updates'])) {
+            $product->variations()
+                ->whereIn('id', $validated['variation_ids'])
+                ->update($validated['updates']);
+        }
 
         return response()->json(['message' => 'Variations updated']);
     }
