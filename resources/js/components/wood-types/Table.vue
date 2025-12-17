@@ -40,7 +40,7 @@
             </th>
             <th class="py-3 px-2 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
               <button @click="sortBy('price')" class="uppercase cursor-pointer flex items-center gap-1 ml-auto hover:text-black transition-colors">
-                <span>Preis m<sup>2</sup></span>
+                <span>Preis m<sup>3</sup></span>
                 <span v-if="sortColumn === 'price'" class="text-black">{{ sortDirection === 'asc' ? '↑' : '↓' }}</span>
               </button>
             </th>
