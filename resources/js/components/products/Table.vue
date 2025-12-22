@@ -99,7 +99,7 @@
                 <div class="w-10 h-10 bg-gray-100 flex-shrink-0">
                   <img
                     v-if="product.images && product.images.length > 0"
-                    :src="product.images[0].url"
+                    :src="product.images[0].name ? `/storage/uploads/${product.images[0].name}` : product.images[0].url"
                     :alt="product.name"
                     class="w-full h-full object-cover"
                   />

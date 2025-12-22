@@ -11,6 +11,7 @@ class ProductImage extends Model
         'imageable_id',
         'imageable_type',
         'url',
+        'name',
         'position',
     ];
 
