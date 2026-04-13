@@ -162,14 +162,14 @@
               >
                 <PhPencilSimple class="w-5 h-5" />
               </router-link>
-              <!-- <button
+              <button
                 v-if="hasAnalysisComponent(product.wc_id)"
                 @click="openAnalysisLightbox(product)"
                 class="text-gray-400 hover:text-black transition-colors cursor-pointer"
                 title="Preisanalyse"
               >
                 <PhChartBar class="w-5 h-5" />
-              </button> -->
+              </button>
               <button
                 @click="confirmDeleteProduct(product)"
                 class="text-gray-400 hover:text-red-500 transition-colors cursor-pointer"
